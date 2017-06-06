@@ -1,0 +1,569 @@
+@font-face {
+  font-family: 'droid';
+  src: url('../../fonts/droid-sans/droidsans-webfont.woff2') format('woff2'),
+  url('../../fonts/droid-sans/droidsans-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'droid_bold';
+  src: url('../../fonts/droid-sans/droidsans-bold-webfont.woff2') format('woff2'),
+  url('../../fonts/droid-sans/droidsans-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$fonts:(
+  primary: 'droid',
+  primary-bold: 'droid_bold'
+);
+
+$colors: (
+  modal: rgba(26, 26, 26, .9),
+  gray: rgba(153, 161, 166, 1),
+  unhcr: rgba(0, 114, 188, 1),
+  paynesGray: rgba(92, 103, 132, 1),
+);
+
+//BASE CLASSES
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: map-get($fonts, primary);
+}
+
+.f-right {
+  float: right;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+p, a {
+  font-family: map_get($fonts, primary);
+  font-size: 18px;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: map_get($fonts, primary-bold);
+}
+
+.outer-wrap{
+  position: relative;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+//NAVIGATION DIRECTIVE
+
+navigation {
+  order: 1;
+}
+
+navigation nav {
+  overflow: hidden;
+  width: 100%;
+  background-color: map_get($colors, gray);
+  border-width: 4px 0 4px 0;
+  //border-style: solid;
+  //border-color: #DFDDDE;
+}
+
+navigation ul {
+  list-style-type: none;
+}
+
+navigation ul li a:first-child {
+  padding-left: 0;
+}
+
+navigation ul li a {
+  font-size: 1.4em;
+  text-decoration: none;
+  display: block;
+  padding: .5em 1em;
+}
+
+
+
+//HOME PAGE
+
+#home-wrap {
+
+  background-image: url('/img/refugee-camp-2017-2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#home-wrap .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#login-wrap {
+  order: 1;
+  background: rgba(255, 255, 255, .9);
+  padding: 2em 3em 3em 3em;
+  text-align: center;
+
+}
+
+#login-wrap input[type="text"], #login-wrap input[type="email"], #login-wrap input[type="password"] {
+  margin: .7em 0;
+  padding: .5em;
+}
+
+#login-wrap input[type="submit"] {
+  padding: .7em 2em;
+  display: block;
+  min-width: 5em;
+  margin: 2em auto 1em auto;
+  text-align: center;
+}
+
+#login-wrap #create-account-link {
+  display: block;
+  margin: 0 auto;
+  font-size: 1em;
+  color: map_get($colors, unhcr);
+}
+
+
+//VILLAGES PAGE
+
+
+#villages-outer {
+  order: 2;
+  flex: 3;
+  overflow-y: scroll;
+}
+
+
+.village-select {
+  min-width: 18%;
+  margin: 3%;
+  padding: .3em;
+  font-size: 1.3em;
+
+}
+
+.village-select:first-child {
+  margin-left: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+#map-wrap {
+  order: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#map-wrap--inner {
+  min-width: 10em;
+}
+
+#map-wrap--map {
+  order: 1;
+  min-width: 20em;
+  height: 20em;
+  margin: 2em 0;
+  position: fixed;
+
+}
+
+#map-wrap--details {
+  order: 2;
+}
+
+#visit-btn-wrap {
+  order: 2;
+  flex: 2;
+  margin: 2em;
+}
+
+
+#village-form-btn-wrap {
+  order: 3;
+  margin-bottom: 5em;
+}
+
+
+.modal {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: map_get($colors, modal);
+}
+
+#villages-modal {
+  @extend .modal;
+  padding-bottom: 5em;
+}
+
+#modal-inner {
+  position: relative;
+}
+.modal-exit {
+  color: map_get($colors, gray);
+  position: fixed;
+  right: 0;
+  margin: .5em 2em;
+  font-size: 2.5em;
+  transition: color 1s;
+
+}
+
+.modal-exit:hover {
+  cursor: default;
+  color: white;
+}
+
+
+//VISIT FORM STYLES
+
+.form-section {
+  width: 97%;
+  margin: 1em auto 0 auto;
+  border: 2px solid black;
+  padding: 2em;
+}
+
+visit-form form {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+}
+
+visit-form h3, #form-print-modal-inner h3 {
+  margin: .5em 0 1em 0;
+}
+
+visit-form #header-form-head {
+  margin-bottom: .1em;
+}
+
+visit-form label, visit-form input, visit-form textarea {
+  margin: .25em 0;
+}
+
+visit-form textarea {
+  width: 70%;
+  min-height: 6em;
+  font-family: map_get($fonts, droid);
+}
+
+visit-form input[type="text"], visit-form input[type="number"], visit-form input[type="email"], visit-form select, visit-form textarea {
+  border-radius: 8px;
+  border: .5px solid map_get($colors, gray);
+  outline: none;
+  text-indent: .5em;
+  font-size: 1em;
+  padding: .1em 0;
+}
+
+
+visit-form input[type="radio"], visit-form input[type="checkbox"] {
+  margin: .25em .4em;
+}
+
+visit-form .optionGroup {
+  margin: .4em 0;
+};
+
+visit-form .label-small {
+  font-size: 1em;
+}
+
+visit-form .label-reg {
+  font-size: 1.25em;
+}
+
+visit-form #submit-btn-wrap {
+  width: 97%;
+  margin: 2em auto;
+}
+
+visit-form button[type="submit"] {
+  border: 2px solid black;
+  background-color: white;
+  padding: 1em;
+  font-size: 1.25em;
+}
+
+visit-form input.ng-dirty.ng-valid {
+  box-shadow: inset 0 0 3px map-get($colors, unhcr);
+}
+
+visit-form input.ng-dirty.ng-invalid {
+  box-shadow: inset 0 0 3px #EA3546;
+}
+
+//FORM ERROR MODAL STYLES
+
+#form-error-modal-text-wrap {
+  width: 50%;
+  min-height: 16em;
+  margin: 6em auto;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 12px;
+  border: 1px solid black;
+  text-align: center;
+
+}
+
+#form-error-modal-text-wrap p {
+  margin: 3em auto;
+  max-width: 13em;
+}
+
+#form-error-modal-text-wrap button {
+  @extend .btn;
+  width: 10em;
+}
+
+//PREVIOUS RECORDED VISITS
+
+.btn {
+  height: 2.5em;
+  font-size: 1em;
+  border: 2px solid black;
+  background-color: white;
+  margin-top: .5em;
+  transition: all 1s linear;
+};
+
+.btn-active {
+  background-color: map_get($colors, unhcr);
+  color: white;
+}
+
+.btn:hover {
+  @extend .btn-active;
+}
+
+.visit-btn {
+  @extend .btn;
+  width: 97%;
+
+};
+
+.visit-btn:last-child {
+  margin-bottom: 2em;
+};
+
+.sections-tab {
+  margin-top: 1em;
+  list-style-type: none;
+  overflow: hidden;
+  width:100%;
+  transition: all 1s;
+
+
+};
+
+.sections-tab  li {
+  float:left;
+  display: block;
+  padding: .7em .3em;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transition: all .7s;
+  min-width: 5em;
+  text-align: center;
+
+
+};
+
+.sections-tab  li:first-child {
+  border-left: 1px solid black;
+}
+
+.sections-tab li:hover {
+  background-color: #DBE4EE;
+}
+.visit-details-div p {
+  font-size: 1em;
+}
+
+.selected-tab {
+  background-color: #DBE4EE;
+}
+
+.visit-details-div{
+  @extend .hidden;
+}
+
+.visit-details-div {
+  min-height: 10em;
+  background-color: #DBE4EE;
+  width: 97%;
+  padding: 1.5em 0;
+  border: 1px solid black;
+  border-top: 0;
+}
+
+.visit-details-div-inner {
+  padding-left: 1em;
+}
+
+.visit-details-div-inner p{
+  padding: .35em .15em .35em 0;
+  max-width: 95%;
+}
+
+.visit-details-div-inner p:first-child {
+  padding-top: 0;
+}
+
+.visit-content-wrap.ng-hide {
+  opacity: 0;
+
+}
+
+.visit-content-wrap.ng-hide-add,
+.visit-content-wrap.ng-hide-remove {
+  transition: all linear 0.7s;
+}
+
+.visit-content-wrap {
+  opacity: 1;
+
+}
+
+//PRINT REPORT
+
+#form-print-modal {
+  overflow: auto;
+};
+#print-report-head-text h3:first-child {
+  margin-bottom: 0;
+}
+#form-print-modal-inner {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#form-print-modal-inner p {
+  padding: .1em 0;
+}
+
+#print-report-head {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+#print-report-head-text {
+  order: 1;
+  flex: 1;
+}
+
+#map2 {
+  order: 2;
+  flex: 2;
+  min-width: 10em;
+  min-height: 10em;
+  margin: 0 auto;
+}
+
+#print-report-overview {
+  order: 2;
+}
+
+#print-report-overview-text {
+}
+
+
+#print-report-shelter {
+  order: 3;
+}
+
+#print-report-infrastructure {
+  order: 4;
+}
+
+#print-report-protection {
+  order: 5;
+}
+#print-body .inner{
+  width: 100%;
+}
+
+#print-body .form-section {
+  width: 100%;
+}
+
+#print-body #form-print-modal-inner p {
+  font-size: 13px;
+}
+
+#print-body #form-print-modal-inner h3 {
+  font-size: 16px;
+}
+//FOOTER
+
+
+footer {
+  order: 3;
+  width: 100%;
+  background-color: black;
+  min-height: 3em;
+}
+
+#print-html, #print-body {
+  overflow: auto;
+  height: auto;
+  margin:auto;
+}

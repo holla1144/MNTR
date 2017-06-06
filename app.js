@@ -1,0 +1,41 @@
+/**
+ * Created by Master on 4/2/2017.
+ */
+var express = require('express'),
+    path = require('path'),
+    app = express(),
+    routes = require('./app_server/routes/index'),
+    bodyParser = require('body-parser'),
+    routesApi = require('./app_api/routes/index'),
+    passport = require('passport'),
+    port = 4200;
+
+require('./app_api/config/passport');
+require('./app_api/models/db');
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_client')));
+
+app.use(bodyParser.json());
+
+app.use(passport.initialize());
+
+app.use(function(err, req, res, next) {
+    if (err.name === "UnauthorizedError") {
+        res.status(401);
+        res.json({"message": err.name + ": " + err.message});
+    }
+});
+
+app.use('/api', routesApi);
+
+app.use(function(req, res) {
+    //console.log(req);
+    res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+});
+
+
+
+app.listen(port, function() {
+    console.log("va-app listening on port" + " " + port);
+});

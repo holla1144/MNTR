@@ -1,0 +1,168 @@
+<navigation></navigation>
+
+    <div class="outer-wrap" id="villages-outer">
+
+        <div class="inner" id="villages-inner">
+
+            <div id="village-select-wrap">
+                <select class="village-select" ng-model="vm.selectedOblast" ng-change="vm.getRayons()" ng-options="i.pcode as i.name for i in vm.oblasts" id="oblast">
+                    <option value="">--Oblast--</option>
+                </select>
+                <select class="village-select"ng-model="vm.selectedRayon" ng-change="vm.getVillages()" ng-options="i.Admin2 as i.Name for i in vm.rayons track by i.Admin2" id="rayon">
+                    <option value="">--Rayon--</option>
+                </select>
+                <select class="village-select" ng-model="vm.selectedVillage" ng-change="vm.selectVillage()" ng-options="i.Admin4 as i.Name for i in vm.villages track by i.Admin4">
+                    <option value="">--Village--</option>
+                </select>
+            </div>
+            <main>
+
+                <div id="visit-btn-wrap">
+
+                        <h3>{{vm.visitHeader}}</h3>
+                        <div ng-repeat="i in vm.visitArray | orderBy:'-date'" id="visits-container">
+
+                            <button class="visit-btn" value="{{i.location}}" ng-click="showme = !showme" ng-class="{'btn-active': showme}">{{i.date | date }}</button>
+                            <div class="visit-content-wrap" ng-show="showme">
+
+                                <ul class="horizontal-list sections-tab">
+                                    <li class="sections-tab-item selected-tab"  ng-click="vm.selectTab($event)"  data-id="{{ i._id }}" data-tab="{{i._id + '-overview' }}">Overview</li>
+                                    <li class="sections-tab-item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-shelter' }}">Shelter</li>
+                                    <li class="sections-tab-item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-infrastructure' }}">Infrastructure</li>
+                                    <li class="sections-tab-item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-protection' }}">Protection</li>
+                                    <li class="sections-tab-item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-assistance' }}">Assistance</li>
+                                    <li class="sections-tab-item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-commentary' }}">Commentary</li>
+                                    <li class="sections-tab-item"  ng-click="vm.openPrintModal(i)" data-id="{{ i._id }}" data-tab="{{i._id + '-print' }}" class="print-modal-btn">Print</li>
+                                </ul>
+
+                    <!-- OVERVIEW SECTION -->
+                                <div class="visit-details-div visible" data-id="{{ i._id }}" data-block="{{i._id + '-overview' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p>Information collected by: {{ i.collector_name }}</p>
+                                        <p>Organization of collector: {{ i.org || "Not reported" }}</p>
+                                        <p>Role of informant: {{ i.source_role || "Not reported" }}</p>
+                                        <p>Village status: {{ i.village_status || "Not reported" }}</p>
+                                        <p>Estimated current population: {{ i.population_current || "Not reported" }}</p>
+                                        <p>Estimated pre-conflict population: {{ i.population_pre || "Not reported" }}</p>
+                                    </div>
+                                </div>
+                    <!-- SHELTER SECTION -->
+                                <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-shelter' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p>Number of individual houses: {{ i.ind_houses || "Not reported" }}</p>
+                                        <p>Number of multi-storey houses: {{ i.multi_houses || "Not reported" }}</p>
+                                        <p>Individual houses in need of light repairs: {{ i.ind_houses_light || "Not reported" }}</p>
+                                        <p>Individual houses in need of medium repairs: {{ i.ind_houses_medium || "Not reported" }}</p>
+                                        <p>Individual houses in need of reconstruction: {{ i.ind_houses_recon || "Not reported" }}</p>
+                                        <p>Multi-storey houses in need of light/med repairs: {{ i.ind_houses_recon || "Not reported" }}</p>
+                                    </div>
+                                </div>
+                    <!-- INFRASTRUCTURE SECTION -->
+                                <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-infrastructure' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p>Number of houses using gas for heating: {{ i.gas || "Not reported" }}</p>
+                                        <p>Number of houses with central heating: {{ i.central || "Not reported" }}</p>
+                                        <p>Number of houses which use coal or wood for heating: {{ i.coal_wood || "Not reported" }}</p>
+                                        <p>Is fuel readily available in the location? {{ i.fuel || "Not reported" }}</p>
+                                        <p>Does the village experience disruptions to electricity? {{ (i.elect_disrupt == null) ? "Not reported" : i.elect_disrupt ? "Yes" : "No"}}{{ i.elect_disrupt_freq ? ", " + i.elect_disrupt_freq : '' }}</p>
+                                        <p>Does the village experience disruptions to water? {{ (i.water_disrupt == null) ? "Not reported" : i.water_disrupt ? "Yes" : "No"}}{{ i.water_disrupt_freq ? ", " + i.water_disrupt_freq : '' }}</p>
+                                        <p>Does the village experience disruptions to gas? {{ (i.gas_disrupt == null) ? "Not reported" : i.gas_disrupt ? "Yes" : "No"}}{{ i.gas_disrupt_freq ? ", " + i.gas_disrupt_freq : '' }}</p>
+                                        <p>Is transportation a concern? {{ (i.transport == null) ? "Not reported" : i.transport ? "Yes" : "No" }} </p>
+                                        <button class="visit-details-commentary-btn" ng-show="i.transport_detail" ng-click="showTransportDetails = !showTransportDetails">Show Details about transport</button>
+                                        <div class="visit-details-commentary-div" ng-show="showTransportDetails">
+                                            <p class="visit-details-commentary-div-item">{{ i.transport_detail }}</p>
+                                        </div>
+                                        <button class="visit-details-commentary-btn" ng-show=" i.infrastructure_detail != null " ng-click="showInfrastructureDetails = !showInfrastructureDetails">Show commentary about infrastructure</button>
+                                        <div class="visit-details-commentary-div" ng-show="showInfrastructureDetails">
+                                            <p class="visit-details-commentary-div-item">{{ i.infrastructure_detail }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    <!--PROTECTION SECTION-->
+                                <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-protection' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p>Is community tension a concern? {{ (i.tension == null) ? "Not reported" : i.tension ? "Yes" : "No" }}</p>
+                                        <p>Is land expropriation a concern? {{ (i.expropriation == null) ? "Not reported" : i.expropriation ? "Yes" : "No" }}</p>
+                                        <p>Is discrimination against IDPs/Returnees a concern? {{ (i.discrimination == null) ? "Not reported" : i.discrimination ? "Yes" : "No" }}</p>
+                                        <p>Is human trafficking a concern? {{ (i.trafficking == null) ? "Not reported" : i.trafficking ? "Yes" : "No" }}</p>
+                                        <p>Is corruption a concern? {{ (i.corruption == null) ? "Not reported" : i.corruption ? "Yes" : "No" }}</p>
+                                        <p>Is presence of armed forces a concern? {{ (i.armed_forces == null) ? "Not reported" : i.armed_forces ? "Yes" : "No" }}</p>
+                                        <p>Is forced recruitment a concern? {{ (i.forced_recruit == null) ? "Not reported" : i.forced_recruit ? "Yes" : "No" }}</p>
+                                        <p>Is freedom of movement a concern? {{ (i.freedom_of_movement == null) ? "Not reported" : i.freedom_of_movement ? "Yes" : "No" }}</p>
+                                        <p>Is the presence of ERWs a concern? {{ (i.erw == null) ? "Not reported" : i.erw ? "Yes" : "No" }}</p>
+                                        <p>How is the relationship between the host community and IDPs?
+                                            <br> {{ (i.idp_host_relationship == null) ? "Not reported" : i.idp_host_relationship }}</p>
+                                        <p>How has the number of returnees changed in the last 30 days?
+                                            <br> {{ (i.returnees_change == null) ? "Not reported" : i.returnees_change }}</p>
+                                        <p>How has the number of idps changed in the last 30 days? {{ (i.idps == null) ? "Not reported" : i.idps }}</p>
+                                        <button class="visit-details-commentary-btn" ng-show=" i.protection_detail != null " ng-click="showProtectionDetails = !showProtectionDetails">Show commentary about protection concerns</button>
+                                        <div class="visit-details-commentary-div" ng-show="showProtectionDetails">
+                                            <p class="visit-details-commentary-div-item">{{ i.protection_detail }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <!--ASSISTANCE SECTION-->
+                                <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-assistance' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p>{{ !i.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</p>
+                                        <ul>
+                                            <li ng-repeat="(key, val) in i.assistance_type">{{ val ? key : "" }}</li>
+                                        </ul>
+                                        <p>Organizations which have provided assistance: {{ ( i.assistance_orgs !== null) ? i.assistance_orgs : "No information reported" }}</p>
+                                        <p>Perceived level of need for NFIs: {{ (i.nfi_need !== null) ? i.nfi_need : "No information reported" }}</p>
+                                        <p>{{ !i.deficits ? "No information about deficits of goods or services" : "There are deficits of the following goods and services" }}</p>
+                                        <ul>
+                                            <li ng-repeat="(key, val) in i.deficits">{{ val ? key : "" }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    <!--COMMENTARY SECTION-->
+                                <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-commentary' }}">
+                                    <div class="visit-details-div-inner">
+                                        <p> {{ i.commentary || "No comments recorded" }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div  ng-show="vm.villageDetails !== ''" id="village-form-btn-wrap "><button class="visit-btn" ng-click="vm.modalOpen('#villages-modal')">Submit a new Visit</button></div>
+                </div>
+                <div id="map-wrap">
+                    <div id="map-wrap--inner">
+                        <div id="map-wrap--map"></div>
+                        <div id="map-wrap--details" ng-show="vm.villageDetails">
+                            <p>Location: {{vm.villageDetails.Name}}</p>
+                            <p>Estimated Population: {{vm.villageDetails.Population | number }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+    <div class="hidden modal" id="villages-modal">
+        <div id="modal-inner">
+            <div class="inner">
+                <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
+                <visit-form></visit-form>
+            </div>
+<!--ERROR MODAL CONTENT-->
+            <div class="hidden modal" id="form-error-modal">
+                <div id="form-error-modal-text-wrap">
+                    <p>{{ vm.formErrorMsg }}</p>
+                    <button id="form-error-btn" ng-click="vm.modalClose($event)">Got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--PRINT VISIT MODAL-->
+    <div class="hidden modal" id="form-print-modal">
+        <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
+        <print-visit-form></print-visit-form>
+    </div>
+
+<footer>
+    <p>I am a footer</p>
+</footer>

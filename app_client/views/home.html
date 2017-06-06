@@ -1,0 +1,24 @@
+
+
+<div class="outer-wrap" id="home-wrap">
+    <div class="inner">
+        <div id="login-wrap">
+            <form ng-hide="showRegister" ng-submit="vm.login()" novalidate>
+                <input type="email" id="email" ng-model="vm.loginEmail" placeholder="Email" required><br>
+                <input type="password" id="password" ng-model="vm.loginPassword" placeholder="Password" required><br>
+                <div ng-show="vm.loginError"> {{ vm.loginError }}</div>
+                <input type="submit" value="Log In" id="login-submit">
+            </form>
+
+            <form ng-show="showRegister" ng-submit="vm.register()" novalidate>
+                <input type="text" id="register-name" ng-model="vm.registerName" placeholder="Name" required><br>
+                <input type="email" id="register-email" ng-model="vm.registerEmail" placeholder="Email" required><br>
+                <input type="password" id="register-password" ng-model="vm.registerPassword" placeholder="Password" required><br>
+                <div ng-show="vm.registrationError"> {{ vm.registrationError }}</div>
+                <input type="submit" value="Register" id="register-submit">
+            </form>
+
+            <p id="create-account-link" ng-click="showRegister=!showRegister; showRegister ? vm.linkMsg = 'login' : vm.linkMsg = 'create an account'"> {{ vm.linkMsg || 'create an account'}}</p>
+        </div>
+    </div>
+</div>

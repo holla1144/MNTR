@@ -1,0 +1,568 @@
+{
+"rayons":[
+  {
+    "pcode": 1420600000,
+    "admin1": 1400000000,
+    "name": "Amvrosiivskyi"
+  },
+  {
+    "pcode": 1410300000,
+    "admin1": 1400000000,
+    "name": "Artemivska"
+  },
+  {
+    "pcode": 1410200000,
+    "admin1": 1400000000,
+    "name": "Avdiivska"
+  },
+  {
+    "pcode": 1420900000,
+    "admin1": 1400000000,
+    "name": "Bakhmutskyi"
+  },
+  {
+    "pcode": 1424800000,
+    "admin1": 1400000000,
+    "name": "Boikivskyi"
+  },
+  {
+    "pcode": 1410900000,
+    "admin1": 1400000000,
+    "name": "Debaltsivcka"
+  },
+  {
+    "pcode": 1411500000,
+    "admin1": 1400000000,
+    "name": "Dobropilska"
+  },
+  {
+    "pcode": 1422000000,
+    "admin1": 1400000000,
+    "name": "Dobropilskyi"
+  },
+  {
+    "pcode": 1411600000,
+    "admin1": 1400000000,
+    "name": "Dokuchaievska"
+  },
+  {
+    "pcode": 1410100000,
+    "admin1": 1400000000,
+    "name": "Donetska"
+  },
+  {
+    "pcode": 1411700000,
+    "admin1": 1400000000,
+    "name": "Druzhkivska"
+  },
+  {
+    "pcode": 1411300000,
+    "admin1": 1400000000,
+    "name": "Dymytrovska"
+  },
+  {
+    "pcode": 1411200000,
+    "admin1": 1400000000,
+    "name": "Dzerzhynska"
+  },
+  {
+    "pcode": 1410600000,
+    "admin1": 1400000000,
+    "name": "Horlivska"
+  },
+  {
+    "pcode": 1415000000,
+    "admin1": 1400000000,
+    "name": "Khartsyzka"
+  },
+  {
+    "pcode": 1412500000,
+    "admin1": 1400000000,
+    "name": "Kirovska"
+  },
+  {
+    "pcode": 1412600000,
+    "admin1": 1400000000,
+    "name": "Kostiantynivska"
+  },
+  {
+    "pcode": 1422400000,
+    "admin1": 1400000000,
+    "name": "Kostiantynivskyi"
+  },
+  {
+    "pcode": 1412900000,
+    "admin1": 1400000000,
+    "name": "Kramatorska"
+  },
+  {
+    "pcode": 1413200000,
+    "admin1": 1400000000,
+    "name": "Krasnoarmiiska"
+  },
+  {
+    "pcode": 1413300000,
+    "admin1": 1400000000,
+    "name": "Krasnolymanska"
+  },
+  {
+    "pcode": 1423000000,
+    "admin1": 1400000000,
+    "name": "Lymanskyi"
+  },
+  {
+    "pcode": 1413500000,
+    "admin1": 1400000000,
+    "name": "Makiivska"
+  },
+  {
+    "pcode": 1423900000,
+    "admin1": 1400000000,
+    "name": "Manhushskyi"
+  },
+  {
+    "pcode": 1423300000,
+    "admin1": 1400000000,
+    "name": "Marinskyi"
+  },
+  {
+    "pcode": 1412300000,
+    "admin1": 1400000000,
+    "name": "Mariupolska"
+  },
+  {
+    "pcode": 1421700000,
+    "admin1": 1400000000,
+    "name": "Nikolskyi"
+  },
+  {
+    "pcode": 1423600000,
+    "admin1": 1400000000,
+    "name": "Novoazovskyi"
+  },
+  {
+    "pcode": 1413600000,
+    "admin1": 1400000000,
+    "name": "Novohrodivska"
+  },
+  {
+    "pcode": 1420300000,
+    "admin1": 1400000000,
+    "name": "Oleksandrivskyi"
+  },
+  {
+    "pcode": 1422700000,
+    "admin1": 1400000000,
+    "name": "Pokrovskyi"
+  },
+  {
+    "pcode": 1413800000,
+    "admin1": 1400000000,
+    "name": "Selydivska"
+  },
+  {
+    "pcode": 1415300000,
+    "admin1": 1400000000,
+    "name": "Shakhtarska"
+  },
+  {
+    "pcode": 1425200000,
+    "admin1": 1400000000,
+    "name": "Shakhtarskyi"
+  },
+  {
+    "pcode": 1414100000,
+    "admin1": 1400000000,
+    "name": "Slovianska"
+  },
+  {
+    "pcode": 1424200000,
+    "admin1": 1400000000,
+    "name": "Slovianskyi"
+  },
+  {
+    "pcode": 1414400000,
+    "admin1": 1400000000,
+    "name": "Snizhnianska"
+  },
+  {
+    "pcode": 1424500000,
+    "admin1": 1400000000,
+    "name": "Starobeshivskyi"
+  },
+  {
+    "pcode": 1414700000,
+    "admin1": 1400000000,
+    "name": "Torezka"
+  },
+  {
+    "pcode": 1421200000,
+    "admin1": 1400000000,
+    "name": "Velykonovosilkivskyi"
+  },
+  {
+    "pcode": 1421500000,
+    "admin1": 1400000000,
+    "name": "Volnovaskyi"
+  },
+  {
+    "pcode": 1414800000,
+    "admin1": 1400000000,
+    "name": "Vuhledarska"
+  },
+  {
+    "pcode": 1415500000,
+    "admin1": 1400000000,
+    "name": "Yasynuvatska"
+  },
+  {
+    "pcode": 1425500000,
+    "admin1": 1400000000,
+    "name": "Yasynuvatskyi"
+  },
+  {
+    "pcode": 1412000000,
+    "admin1": 1400000000,
+    "name": "Yenakiievska"
+  },
+  {
+    "pcode": 1412100000,
+    "admin1": 1400000000,
+    "name": "Zhdanivska"
+  },
+  {
+    "pcode": 1420955000,
+    "admin1": 1400000000,
+    "name": "#N/A"
+  },
+  {
+    "pcode": 6320200000,
+    "admin1": 6300000000,
+    "name": "Balakliiskyi"
+  },
+  {
+    "pcode": 6320400000,
+    "admin1": 6300000000,
+    "name": "Barvinkivskyi"
+  },
+  {
+    "pcode": 6320600000,
+    "admin1": 6300000000,
+    "name": "Blyzniukivskyi"
+  },
+  {
+    "pcode": 6320800000,
+    "admin1": 6300000000,
+    "name": "Bohodukhivskyi"
+  },
+  {
+    "pcode": 6321000000,
+    "admin1": 6300000000,
+    "name": "Borivskyi"
+  },
+  {
+    "pcode": 6312000000,
+    "admin1": 6300000000,
+    "name": "Chuhuivska"
+  },
+  {
+    "pcode": 6325400000,
+    "admin1": 6300000000,
+    "name": "Chuhuivskyi"
+  },
+  {
+    "pcode": 6322000000,
+    "admin1": 6300000000,
+    "name": "Derhachivskyi"
+  },
+  {
+    "pcode": 6321800000,
+    "admin1": 6300000000,
+    "name": "Dvorichanskyi"
+  },
+  {
+    "pcode": 6310400000,
+    "admin1": 6300000000,
+    "name": "Iziumska"
+  },
+  {
+    "pcode": 6322800000,
+    "admin1": 6300000000,
+    "name": "Iziumskyi"
+  },
+  {
+    "pcode": 6323100000,
+    "admin1": 6300000000,
+    "name": "Kehychivskyi"
+  },
+  {
+    "pcode": 6310100000,
+    "admin1": 6300000000,
+    "name": "Kharkivska"
+  },
+  {
+    "pcode": 6325100000,
+    "admin1": 6300000000,
+    "name": "Kharkivskyi"
+  },
+  {
+    "pcode": 6323200000,
+    "admin1": 6300000000,
+    "name": "Kolomatskyi"
+  },
+  {
+    "pcode": 6323300000,
+    "admin1": 6300000000,
+    "name": "Krasnohradskyi"
+  },
+  {
+    "pcode": 6323500000,
+    "admin1": 6300000000,
+    "name": "Krasnokutskyi"
+  },
+  {
+    "pcode": 6310700000,
+    "admin1": 6300000000,
+    "name": "Kupianska"
+  },
+  {
+    "pcode": 6323700000,
+    "admin1": 6300000000,
+    "name": "Kupianskyi"
+  },
+  {
+    "pcode": 6311200000,
+    "admin1": 6300000000,
+    "name": "Liubotynska"
+  },
+  {
+    "pcode": 6311000000,
+    "admin1": 6300000000,
+    "name": "Lozivska"
+  },
+  {
+    "pcode": 6323900000,
+    "admin1": 6300000000,
+    "name": "Lozivskyi"
+  },
+  {
+    "pcode": 6324200000,
+    "admin1": 6300000000,
+    "name": "Novovodolazkyi"
+  },
+  {
+    "pcode": 6324600000,
+    "admin1": 6300000000,
+    "name": "Pechenizkyi"
+  },
+  {
+    "pcode": 6311500000,
+    "admin1": 6300000000,
+    "name": "Pervomaiska"
+  },
+  {
+    "pcode": 6324500000,
+    "admin1": 6300000000,
+    "name": "Pervomaiskyi"
+  },
+  {
+    "pcode": 6324800000,
+    "admin1": 6300000000,
+    "name": "Sakhnovshchynskyi"
+  },
+  {
+    "pcode": 6325700000,
+    "admin1": 6300000000,
+    "name": "Shevchenkivskyi"
+  },
+  {
+    "pcode": 6321200000,
+    "admin1": 6300000000,
+    "name": "Valkivskyi"
+  },
+  {
+    "pcode": 6321400000,
+    "admin1": 6300000000,
+    "name": "Velykoburlutskyi"
+  },
+  {
+    "pcode": 6321600000,
+    "admin1": 6300000000,
+    "name": "Vovchanskyi"
+  },
+  {
+    "pcode": 6322200000,
+    "admin1": 6300000000,
+    "name": "Zachepylivskyi"
+  },
+  {
+    "pcode": 6321700000,
+    "admin1": 6300000000,
+    "name": "Zmiivskyi"
+  },
+  {
+    "pcode": 6322600000,
+    "admin1": 6300000000,
+    "name": "Zolochivskyi"
+  },
+  {
+    "pcode": 4411200000,
+    "admin1": 4400000000,
+    "name": "Alchevska"
+  },
+  {
+    "pcode": 4410300000,
+    "admin1": 4400000000,
+    "name": "Antratsytivska"
+  },
+  {
+    "pcode": 4420300000,
+    "admin1": 4400000000,
+    "name": "Antratsytivskyi"
+  },
+  {
+    "pcode": 4420900000,
+    "admin1": 4400000000,
+    "name": "Bilokurakynskyi"
+  },
+  {
+    "pcode": 4420600000,
+    "admin1": 4400000000,
+    "name": "Bilovodskyi"
+  },
+  {
+    "pcode": 4410500000,
+    "admin1": 4400000000,
+    "name": "Briankivska"
+  },
+  {
+    "pcode": 4424200000,
+    "admin1": 4400000000,
+    "name": "Dovzhanskyi"
+  },
+  {
+    "pcode": 4411000000,
+    "admin1": 4400000000,
+    "name": "Kirovska"
+  },
+  {
+    "pcode": 4411400000,
+    "admin1": 4400000000,
+    "name": "Krasnodonska"
+  },
+  {
+    "pcode": 4411600000,
+    "admin1": 4400000000,
+    "name": "Krasnolutska"
+  },
+  {
+    "pcode": 4421600000,
+    "admin1": 4400000000,
+    "name": "Kreminskyi"
+  },
+  {
+    "pcode": 4410100000,
+    "admin1": 4400000000,
+    "name": "Luhanska"
+  },
+  {
+    "pcode": 4422200000,
+    "admin1": 4400000000,
+    "name": "Lutuhynskyi"
+  },
+  {
+    "pcode": 4411800000,
+    "admin1": 4400000000,
+    "name": "Lysychanska"
+  },
+  {
+    "pcode": 4422500000,
+    "admin1": 4400000000,
+    "name": "Markivskyi"
+  },
+  {
+    "pcode": 4422800000,
+    "admin1": 4400000000,
+    "name": "Milovskyi"
+  },
+  {
+    "pcode": 4423100000,
+    "admin1": 4400000000,
+    "name": "Novoaidarskyi"
+  },
+  {
+    "pcode": 4423300000,
+    "admin1": 4400000000,
+    "name": "Novopskovskyi"
+  },
+  {
+    "pcode": 4423600000,
+    "admin1": 4400000000,
+    "name": "Perevalskyi"
+  },
+  {
+    "pcode": 4412100000,
+    "admin1": 4400000000,
+    "name": "Pervomaiska"
+  },
+  {
+    "pcode": 4423800000,
+    "admin1": 4400000000,
+    "name": "Popasnianskyi"
+  },
+  {
+    "pcode": 4412300000,
+    "admin1": 4400000000,
+    "name": "Rovenkivska"
+  },
+  {
+    "pcode": 4412500000,
+    "admin1": 4400000000,
+    "name": "Rubizhanska"
+  },
+  {
+    "pcode": 4412900000,
+    "admin1": 4400000000,
+    "name": "Sievierodonetska"
+  },
+  {
+    "pcode": 4424500000,
+    "admin1": 4400000000,
+    "name": "Slovianoserbskyi"
+  },
+  {
+    "pcode": 4421400000,
+    "admin1": 4400000000,
+    "name": "Sorokynskyi"
+  },
+  {
+    "pcode": 4413100000,
+    "admin1": 4400000000,
+    "name": "Stakhanovska"
+  },
+  {
+    "pcode": 4424800000,
+    "admin1": 4400000000,
+    "name": "Stanychno-Luhanskyi"
+  },
+  {
+    "pcode": 4425100000,
+    "admin1": 4400000000,
+    "name": "Starobilskyi"
+  },
+  {
+    "pcode": 4424000000,
+    "admin1": 4400000000,
+    "name": "Svativskyi"
+  },
+  {
+    "pcode": 4412700000,
+    "admin1": 4400000000,
+    "name": "Sverdlovska"
+  },
+  {
+    "pcode": 4425400000,
+    "admin1": 4400000000,
+    "name": "Troitskyi"
+  }
+]}

@@ -1,0 +1,17 @@
+{
+  "oblasts":[
+
+    {
+      "pcode": 1400000000,
+      "name": "Donetska"
+    },
+    {
+      "pcode": 6300000000,
+      "name": "Kharkivska"
+    },
+    {
+      "pcode": 4400000000,
+      "name": "Luhanska"
+    }
+  ]
+ }

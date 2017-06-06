@@ -1,0 +1,26 @@
+{
+  "name": "va-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Max Holland <holla1144@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "angular-animate": "^1.6.4",
+    "express": "^4.15.2",
+    "express-jwt": "^5.3.0",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.9.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "nodemon": "^1.11.0"
+  }
+}

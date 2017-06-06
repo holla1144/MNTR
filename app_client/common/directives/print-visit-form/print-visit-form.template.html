@@ -1,0 +1,69 @@
+<div class="inner" id="form-print-modal-inner">
+    <div class="form-section" id="print-report-head">
+        <div id="print-report-head-text">
+            <h3 id="header-form-head">Village</h3>
+            <p>{{vm.printVisit.name}}</p>
+        </div>
+        <div id="map2">
+
+        </div>
+    </div>
+
+    <div  class="form-section" id="print-report-overview">
+        <h3>Overview</h3>
+        <p>Information collected by: {{ vm.printVisit.collector_name }}</p>
+        <p>Organization of collector: {{ vm.printVisit.org || "Not reported" }}</p>
+        <p>Role of informant: {{ vm.printVisit.source_role || "Not reported" }}</p>
+        <p>Village status: {{ vm.printVisit.village_status || "Not reported" }}</p>
+        <p>Estimated current population: {{ vm.printVisit.population_current || "Not reported" }}</p>
+        <p>Estimated pre-conflict population: {{ vm.printVisit.population_pre || "Not reported" }}</p>
+    </div>
+
+
+    <div class="form-section" id="print-report-shelter">
+        <h3>Shelter</h3>
+        <p>Number of individual houses: {{ vm.printVisit.ind_houses || "Not reported" }}</p>
+        <p>Number of multi-storey houses: {{ vm.printVisit.multi_houses || "Not reported" }}</p>
+        <p>Individual houses in need of light repairs: {{ vm.printVisit.ind_houses_light || "Not reported" }}</p>
+        <p>Individual houses in need of medium repairs: {{ vm.printVisit.ind_houses_medium || "Not reported" }}</p>
+        <p>Individual houses in need of reconstruction: {{ vm.printVisit.ind_houses_recon || "Not reported" }}</p>
+        <p>Multi-storey houses in need of light/med repairs: {{ vm.printVisit.ind_houses_recon || "Not reported" }}</p>
+    </div>
+    <div class="form-section" id="print-report-infrastructure">
+        <h3>Infrastructure</h3>
+        <p>Number of houses using gas for heating: {{ vm.printVisit.gas || "Not reported" }}</p>
+        <p>Number of houses with central heating: {{ vm.printVisit.central || "Not reported" }}</p>
+        <p>Number of houses which use coal or wood for heating: {{ vm.printVisit.coal_wood || "Not reported" }}</p>
+        <p>Is fuel readily available in the location? {{ vm.printVisit.fuel || "Not reported" }}</p>
+        <p>Does the village experience disruptions to electricity? {{ (vm.printVisit.elect_disrupt == null) ? "Not reported" : vm.printVisit.elect_disrupt ? "Yes" : "No"}}{{ vm.printVisit.elect_disrupt_freq ? ", " + vm.printVisit.elect_disrupt_freq : '' }}</p>
+        <p>Does the village experience disruptions to water? {{ (vm.printVisit.water_disrupt == null) ? "Not reported" : vm.printVisit.water_disrupt ? "Yes" : "No"}}{{ vm.printVisit.water_disrupt_freq ? ", " + vm.printVisit.water_disrupt_freq : '' }}</p>
+        <p>Does the village experience disruptions to gas? {{ (vm.printVisit.gas_disrupt == null) ? "Not reported" : vm.printVisit.gas_disrupt ? "Yes" : "No"}}{{ vm.printVisit.gas_disrupt_freq ? ", " + vm.printVisit.gas_disrupt_freq : '' }}</p>
+        <p>Is transportation a concern? {{ (vm.printVisit.transport == null) ? "Not reported" : vm.printVisit.transport ? "Yes" : "No" }} </p>
+        <div ng-show="vm.printVisit.transport_detail != null && vm.printVisit.transport_detail != ''">
+            <h4 ng-class="{hidden: !vm.printVisit.transport_detail}">Additional information about transportation concerns:</h4>
+            <p class="visit-details-commentary-div-item">{{ vm.printVisit.transport_detail }}</p>
+        </div>
+        <div ng-show="vm.printVisit.infrastructure_detail != null && vm.printVisit.infrastructure_detail != ''">
+            <h4 ng-class="{hidden: !vm.printVisit.infrastructure_detail}">Additional information about infrastructure:</h4>
+            <p class="visit-details-commentary-div-item">{{ vm.printVisit.infrastructure_detail }}</p>
+        </div>
+    </div>
+    <div class="form-section" id="print-report-protection">
+        <h3>Protection</h3>
+        <p>Is community tension a concern? {{ (vm.printVisit.tension == null) ? "Not reported" : vm.printVisit.tension ? "Yes" : "No" }}</p>
+        <p>Is land expropriation a concern? {{ (vm.printVisit.expropriation == null) ? "Not reported" : vm.printVisit.expropriation ? "Yes" : "No" }}</p>
+        <p>Is discrimination against IDPs/Returnees a concern? {{ (vm.printVisit.discrimination == null) ? "Not reported" : vm.printVisit.discrimination ? "Yes" : "No" }}</p>
+        <p>Is human trafficking a concern? {{ (vm.printVisit.trafficking == null) ? "Not reported" : i.trafficking ? "Yes" : "No" }}</p>
+        <p>Is corruption a concern? {{ (vm.printVisit.corruption == null) ? "Not reported" : i.corruption ? "Yes" : "No" }}</p>
+        <p>Is presence of armed forces a concern? {{ (vm.printVisit.armed_forces == null) ? "Not reported" :vm.printVisit.armed_forces ? "Yes" : "No" }}</p>
+        <p>Is forced recruitment a concern? {{ (vm.printVisit.forced_recruit == null) ? "Not reported" : i.forced_recruit ? "Yes" : "No" }}</p>
+        <p>Is freedom of movement a concern? {{ (vm.printVisit.freedom_of_movement == null) ? "Not reported" : vm.printVisit.freedom_of_movement ? "Yes" : "No" }}</p>
+        <p>Is the presence of ERWs a concern? {{ (vm.printVisit.erw == null) ? "Not reported" : vm.printVisit.erw ? "Yes" : "No" }}</p>
+        <p>How is the relationship between the host community and IDPs?
+            <br> {{ (vm.printVisit.idp_host_relationship == null) ? "Not reported" : vm.printVisit.idp_host_relationship }}</p>
+        <p>How has the number of returnees changed in the last 30 days?
+            <br> {{ (vm.printVisit.returnees_change == null) ? "Not reported" : vm.printVisit.returnees_change }}</p>
+        <p id="print-test">How has the number of idps changed in the last 30 days? {{ (vm.printVisit.idps == null) ? "Not reported" : vm.printVisit.idps }}</p>
+    </div>
+</div>
+<button ng-click="vm.printVisitEvent()">Print Test</button>
