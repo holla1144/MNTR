@@ -8,7 +8,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     routesApi = require('./app_api/routes/index'),
     passport = require('passport'),
-    port = 4200;
+    port = process.env.PORT || 4200;
 
 require('./app_api/config/passport');
 require('./app_api/models/db');
