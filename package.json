@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
