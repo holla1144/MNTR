@@ -23,9 +23,9 @@ function homeCtrl (authentication, $location) {
 
                 authentication.login(credentials).then(function(response) {
                     $location.path('/villages')
-                }, function(response) {
-                    console.log(response);
-                    vm.loginError = "Please create an account to log in."
+                }, function(err) {
+                    console.log(err);
+                    vm.loginError = err.data.message;
                 });
 
             };
@@ -42,10 +42,11 @@ function homeCtrl (authentication, $location) {
                 newUser.email = vm.registerEmail;
                 newUser.password = vm.registerPassword;
 
-                authentication.register(newUser).then(function(response) {
+                authentication.register(newUser).then(function() {
                     $location.path('/villages')
                 }, function(err) {
-                    vm.registrationError = "Sorry, something went wrong. Please try again later."
+                    console.log(err);
+                    vm.registrationError = err.data.message;
                 })
             }
 

@@ -138,28 +138,52 @@ navigation ul li a {
 
 #login-wrap {
   order: 1;
-  background: rgba(255, 255, 255, .9);
-  padding: 2em 3em 3em 3em;
+  border-radius: 10px;
+  background: rgba(238, 239, 240, 1);
+  padding: 2em 0em 3em 0em;
   text-align: center;
+  width: 25%;
+  min-height: 20em;
 
+}
+
+#login-wrap form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-err-msg {
+  margin: 1em 0;
+}
+
+#login-wrap input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 #login-wrap input[type="text"], #login-wrap input[type="email"], #login-wrap input[type="password"] {
+  outline: none;
   margin: .7em 0;
-  padding: .5em;
+  padding: 1em;
+  width: 90%;
+  font-size: 1em;
 }
 
 #login-wrap input[type="submit"] {
+  border: none;
+  background-color: map_get($colors, unhcr);
+  font-family: map_get($fonts, primary);
+  font-size: 1em;
+  color: white;
   padding: .7em 2em;
   display: block;
-  min-width: 5em;
+  min-width: 50%;
   margin: 2em auto 1em auto;
   text-align: center;
 }
 
 #login-wrap #create-account-link {
   display: block;
-  margin: 0 auto;
+  margin: 1em auto;
   font-size: 1em;
   color: map_get($colors, unhcr);
 }
@@ -336,12 +360,12 @@ visit-form button[type="submit"] {
   font-size: 1.25em;
 }
 
-visit-form input.ng-dirty.ng-valid {
+input.ng-dirty.ng-valid {
   box-shadow: inset 0 0 3px map-get($colors, unhcr);
 }
 
-visit-form input.ng-dirty.ng-invalid {
-  box-shadow: inset 0 0 3px #EA3546;
+input.ng-dirty.ng-invalid {
+  box-shadow: inset 0 0 3px red;
 }
 
 //FORM ERROR MODAL STYLES

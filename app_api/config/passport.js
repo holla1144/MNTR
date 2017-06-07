@@ -1,7 +1,6 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
-var URI = 'mongodb://localhost/va-app';
 var User = require('../models/users');
 
 passport.use(new LocalStrategy({
@@ -9,7 +8,6 @@ passport.use(new LocalStrategy({
     },
 
      function(username, password, done) {
-        mongoose.connect(URI, function() {
 
         User.findOne({email: username}, function (err, user) {
             if (err) {
@@ -22,10 +20,9 @@ passport.use(new LocalStrategy({
             }
             if (!user.validPassword(password)) {
                 return done(null, false, {
-                    message: 'Incorrect password.'
+                    message: 'Incorrect password'
                 })
             }
             return done(null, user);
-        })
         })
     }));

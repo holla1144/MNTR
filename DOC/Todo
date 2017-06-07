@@ -11,12 +11,25 @@ Work out general structure of application
 
 Second Iteration
 
+Create a ticketing system
+Village search on villages page
+Revised layout for templates
+Admin panel (see who has logged in, what has been added)
+See nearby villages
+When user selects rayon, a list of locations where visits have been added appears
+Simplified date entry (change date entry)
+Form 'drafts', warning that the user is going to close the window
+Extend data validation so that people can't add more damaged houses than there are houses
+
+
 +Alphabetize dropdown options on select village page
 +Create a survey form directive
 +Use SCSS instead of plain css
 +Hide location and estimated population until a village is selected
 +Add line of contact from earlier iteration of VA App.
 +Add validation styles to visit form (including modal with warnings)
+
+
 
 
 On form validation error, if the user closes the form window the warning modal is still present

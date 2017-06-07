@@ -1,6 +1,5 @@
 var passport = require('passport'),
     mongoose = require('mongoose'),
-    URI = 'mongodb://localhost/va-app',
     User = require('../models/users')
 
 var sendJsonResponse = function(res, status, content) {
@@ -10,35 +9,51 @@ var sendJsonResponse = function(res, status, content) {
 
 module.exports.register = function(req, res) {
 
-    console.log(req);
+        if (!req.body.name || !req.body.email || !req.body.password) {
+            sendJsonResponse(res, 400, {
+                "message": "All fields required"
+            });
+            return } else {
 
-    if (!req.body.name || !req.body.email || !req.body.password) {
-        sendJsonResponse(res, 400, {
-            "message": "All fields required"
-        });
-        return;
-    }
+                let query = User.findOne({email: req.body.email}).count();
 
-    var user = new User();
+                query.exec(function(err, data) {
 
-    user.name = req.body.name;
-    user.email = req.body.email;
-    user.setPassword(req.body.password);
+                    if (err) {
+                        sendJsonResponse(res, 401, {
+                            "message": err
+                        })
 
-    user.save(function(err) {
-        var token;
-        token = user.generateJwt();
-        sendJsonResponse(res, 200, {
-            "token": token
-        })
-    });
+                    } else if (data > 0) {
+                        sendJsonResponse(res, 401, {
+                            "message": "This email has already been registered. " +
+                            "Please log in or use a different email."
+                        })
+
+                    } else {
+
+                        var user = new User();
+
+                        user.name = req.body.name;
+                        user.email = req.body.email;
+                        user.setPassword(req.body.password);
+
+                        user.save(function () {
+                            var token;
+                            token = user.generateJwt();
+                            sendJsonResponse(res, 200, {
+                                "token": token
+                            })
+                        }, function (err) {
+                            sendJsonResponse(res, 401, err);
+                        });
+                    }
+            });
+        }};
 
 
-};
 
 module.exports.login = function(req, res) {
-
-    console.log(req.body);
 
     if(!req.body.email || !req.body.password) {
         sendJsonResponse(res, 400, {

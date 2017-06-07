@@ -7,7 +7,6 @@
 
     function authentication ($window, $http) {
        var saveToken = function(token) {
-           console.log(token);
            $window.localStorage['vaApp-token'] = token;
        };
 
@@ -19,20 +18,14 @@
 
            return $http.post('/api/register', user).then(function(data) {
                saveToken(data.data.token);
-           }, function() {
-               console.log("registration error");
-           })
+           });
        };
 
        var login = function(user) {
 
            return $http.post('/api/login', user).then(function(data) {
                saveToken(data.data.token);
-           }, function(data){
-              console.log(data);
-
-               }
-           )
+           });
        };
 
        var logout = function() {
@@ -41,8 +34,6 @@
 
        var isLoggedIn = function() {
            var token = getToken();
-
-           console.log(token);
 
            if (token) {
                var payload = JSON.parse($window.atob(token.split('.')[1]));
