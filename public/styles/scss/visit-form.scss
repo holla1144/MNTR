@@ -1,0 +1,73 @@
+@import 'base';
+
+//VISIT FORM STYLES
+
+.form-section {
+  width: 97%;
+  margin: 1em auto 0 auto;
+  border: 2px solid black;
+  padding: 2em;
+}
+
+visit-form form {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+}
+
+visit-form h3, #form-print-modal-inner h3 {
+  margin: .5em 0 1em 0;
+}
+
+visit-form #header-form-head {
+  margin-bottom: .1em;
+}
+
+visit-form label, visit-form input, visit-form textarea {
+  margin: .25em 0;
+}
+
+visit-form textarea {
+  width: 70%;
+  min-height: 6em;
+  font-family: map_get($fonts, droid);
+}
+
+visit-form input[type="text"], visit-form input[type="number"], visit-form input[type="email"], visit-form select, visit-form textarea {
+  border-radius: 8px;
+  border: .5px solid map_get($colors, gray);
+  outline: none;
+  text-indent: .5em;
+  font-size: 1em;
+  padding: .1em 0;
+}
+
+
+visit-form input[type="radio"], visit-form input[type="checkbox"] {
+  margin: .25em .4em;
+}
+
+visit-form .optionGroup {
+  margin: .4em 0;
+};
+
+visit-form .label-small {
+  font-size: 1em;
+}
+
+visit-form .label-reg {
+  font-size: 1.25em;
+}
+
+visit-form #submit-btn-wrap {
+  width: 97%;
+  margin: 2em auto;
+}
+
+visit-form button[type="submit"] {
+  border: 2px solid black;
+  background-color: white;
+  padding: 1em;
+  font-size: 1.25em;
+}

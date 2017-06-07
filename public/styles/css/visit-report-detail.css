@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'droid';
+  src: url("../../fonts/droid-sans/droidsans-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'droid_bold';
+  src: url("../../fonts/droid-sans/droidsans-bold-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "droid"; }
+
+.f-right {
+  float: right; }
+
+.inner {
+  width: 80%;
+  margin: 0 auto; }
+
+.hidden, .visit-details-div {
+  display: none; }
+
+.visible {
+  display: block; }
+
+p, a {
+  font-family: "droid";
+  font-size: 18px;
+  color: black; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "droid_bold"; }
+
+.outer-wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+button {
+  border: none;
+  background: none; }
+
+input.ng-dirty.ng-valid {
+  box-shadow: inset 0 0 3px #0072bc; }
+
+input.ng-dirty.ng-invalid {
+  box-shadow: inset 0 0 3px red; }
+
+.btn, .visit-btn {
+  height: 2.5em;
+  font-size: 1em;
+  border: 2px solid black;
+  background-color: white;
+  margin-top: .5em;
+  transition: all 1s linear; }
+
+.btn-active, .btn:hover, .visit-btn:hover {
+  background-color: #0072bc;
+  color: white; }
+
+.visit-btn {
+  width: 97%; }
+
+.visit-btn:last-child {
+  margin-bottom: 2em; }
+
+.sections-tab {
+  margin-top: 1em;
+  list-style-type: none;
+  overflow: hidden;
+  width: 97%;
+  transition: all 1s; }
+
+.sections-tab li {
+  float: left;
+  display: block;
+  padding: .7em .3em;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transition: all .7s;
+  min-width: 5em;
+  text-align: center; }
+
+.sections-tab li:first-child {
+  border-left: 1px solid black; }
+
+.sections-tab li:hover {
+  background-color: #DBE4EE; }
+
+.visit-details-div p {
+  font-size: 1em; }
+
+.selected-tab {
+  background-color: #DBE4EE; }
+
+.visit-details-div {
+  min-height: 10em;
+  background-color: #DBE4EE;
+  width: 97%;
+  padding: 1.5em 0;
+  border: 1px solid black;
+  border-top: 0; }
+
+.visit-details-div-inner {
+  padding-left: 1em; }
+
+.visit-details-div-inner p {
+  padding: .35em .15em .35em 0;
+  max-width: 95%; }
+
+.visit-details-div-inner p:first-child {
+  padding-top: 0; }
+
+.visit-content-wrap.ng-hide {
+  opacity: 0; }
+
+.visit-content-wrap.ng-hide-add,
+.visit-content-wrap.ng-hide-remove {
+  transition: all linear 0.7s; }
+
+.visit-content-wrap {
+  opacity: 1; }

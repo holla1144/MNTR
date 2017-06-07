@@ -401,7 +401,7 @@ function villageCtrl($location, locationData, authentication) {
             /* Opens a new window. Copies the html from the long-form visit report to the new window.
                prints the contents of the page after 1 second.  */
 
-                let bodyContent = $('#form-print-modal-inner').html();
+                let bodyContent = $('#form-content').html();
 
                 w = window.open();
 

@@ -1,0 +1,111 @@
+@import 'base';
+
+//PREVIOUS RECORDED VISITS
+
+.btn {
+  height: 2.5em;
+  font-size: 1em;
+  border: 2px solid black;
+  background-color: white;
+  margin-top: .5em;
+  transition: all 1s linear;
+};
+
+.btn-active {
+  background-color: map_get($colors, unhcr);
+  color: white;
+}
+
+.btn:hover {
+  @extend .btn-active;
+}
+
+.visit-btn {
+  @extend .btn;
+  width: 97%;
+
+};
+
+.visit-btn:last-child {
+  margin-bottom: 2em;
+};
+
+.sections-tab {
+  margin-top: 1em;
+  list-style-type: none;
+  overflow: hidden;
+  width:97%;
+  transition: all 1s;
+
+
+};
+
+.sections-tab  li {
+  float:left;
+  display: block;
+  padding: .7em .3em;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transition: all .7s;
+  min-width: 5em;
+  text-align: center;
+
+
+};
+
+.sections-tab  li:first-child {
+  border-left: 1px solid black;
+}
+
+.sections-tab li:hover {
+  background-color: #DBE4EE;
+}
+.visit-details-div p {
+  font-size: 1em;
+}
+
+.selected-tab {
+  background-color: #DBE4EE;
+}
+
+.visit-details-div{
+  @extend .hidden;
+}
+
+.visit-details-div {
+  min-height: 10em;
+  background-color: #DBE4EE;
+  width: 97%;
+  padding: 1.5em 0;
+  border: 1px solid black;
+  border-top: 0;
+}
+
+.visit-details-div-inner {
+  padding-left: 1em;
+}
+
+.visit-details-div-inner p{
+  padding: .35em .15em .35em 0;
+  max-width: 95%;
+}
+
+.visit-details-div-inner p:first-child {
+  padding-top: 0;
+}
+
+.visit-content-wrap.ng-hide {
+  opacity: 0;
+
+}
+
+.visit-content-wrap.ng-hide-add,
+.visit-content-wrap.ng-hide-remove {
+  transition: all linear 0.7s;
+}
+
+.visit-content-wrap {
+  opacity: 1;
+
+}

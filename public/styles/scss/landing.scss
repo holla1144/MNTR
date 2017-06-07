@@ -1,0 +1,70 @@
+@import 'base';
+
+//HOME PAGE
+
+#home-wrap {
+
+  background-image: url('/img/refugee-camp-2017-2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#home-wrap .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#login-wrap {
+  order: 1;
+  border-radius: 10px;
+  background: rgba(238, 239, 240, 1);
+  padding: 2em 0em 3em 0em;
+  text-align: center;
+  width: 25%;
+  min-height: 20em;
+
+}
+
+#login-wrap form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-err-msg {
+  margin: 1em 0;
+}
+
+#login-wrap input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+#login-wrap input[type="text"], #login-wrap input[type="email"], #login-wrap input[type="password"] {
+  outline: none;
+  margin: .7em 0;
+  padding: 1em;
+  width: 90%;
+  font-size: 1em;
+}
+
+#login-wrap input[type="submit"] {
+  border: none;
+  background-color: map_get($colors, unhcr);
+  font-family: map_get($fonts, primary);
+  font-size: 1em;
+  color: white;
+  padding: .7em 2em;
+  display: block;
+  min-width: 50%;
+  margin: 2em auto 1em auto;
+  text-align: center;
+}
+
+#login-wrap #create-account-link {
+  display: block;
+  margin: 1em auto;
+  font-size: 1em;
+  color: map_get($colors, unhcr);
+}

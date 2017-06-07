@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'droid';
+  src: url("../../fonts/droid-sans/droidsans-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'droid_bold';
+  src: url("../../fonts/droid-sans/droidsans-bold-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }

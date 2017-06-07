@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'droid';
+  src: url('../../fonts/droid-sans/droidsans-webfont.woff2') format('woff2'),
+  url('../../fonts/droid-sans/droidsans-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'droid_bold';
+  src: url('../../fonts/droid-sans/droidsans-bold-webfont.woff2') format('woff2'),
+  url('../../fonts/droid-sans/droidsans-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$fonts:(
+        primary: 'droid',
+        primary-bold: 'droid_bold'
+);
+
+$colors: (
+        modal: rgba(26, 26, 26, .9),
+        gray: rgba(153, 161, 166, 1),
+        unhcr: rgba(0, 114, 188, 1),
+        paynesGray: rgba(92, 103, 132, 1),
+);
+
+//BASE CLASSES
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: map-get($fonts, primary);
+}
+
+.f-right {
+  float: right;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+p, a {
+  font-family: map_get($fonts, primary);
+  font-size: 18px;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: map_get($fonts, primary-bold);
+}
+
+.outer-wrap{
+  position: relative;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+input.ng-dirty.ng-valid {
+  box-shadow: inset 0 0 3px map-get($colors, unhcr);
+}
+
+input.ng-dirty.ng-invalid {
+  box-shadow: inset 0 0 3px red;
+}

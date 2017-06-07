@@ -4,7 +4,6 @@
 var express = require('express'),
     path = require('path'),
     app = express(),
-    routes = require('./app_server/routes/index'),
     bodyParser = require('body-parser'),
     routesApi = require('./app_api/routes/index'),
     passport = require('passport'),
@@ -30,7 +29,6 @@ app.use(function(err, req, res, next) {
 app.use('/api', routesApi);
 
 app.use(function(req, res) {
-    //console.log(req);
     res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
 });
 

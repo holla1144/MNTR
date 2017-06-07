@@ -1,0 +1,86 @@
+@import 'base';
+//PRINT REPORT
+
+#form-print-modal {
+  overflow: auto;
+};
+#print-report-head-text h3:first-child {
+  margin-bottom: 0;
+}
+#form-print-modal-inner {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#form-print-modal-inner p {
+  padding: .1em 0;
+}
+
+#print-report-head {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+#print-report-head-text {
+  order: 1;
+  flex: 1;
+}
+
+#map2 {
+  order: 2;
+  flex: 2;
+  min-width: 10em;
+  min-height: 10em;
+  margin: 0 auto;
+}
+
+#print-report-overview {
+  order: 2;
+}
+
+#print-report-overview-text {
+}
+
+
+#print-report-shelter {
+  order: 3;
+}
+
+#print-report-infrastructure {
+  order: 4;
+}
+
+#print-report-protection {
+  order: 5;
+}
+
+#print-report-print-btn {
+  height: auto;
+  text-align: center;
+  margin: 2em auto;
+  order: 6;
+  min-width: 10em;
+  padding: 2em 4em;
+}
+
+#print-body .inner{
+  width: 100%;
+}
+
+#print-body .form-section {
+  width: 100%;
+}
+
+#print-body p {
+  font-size: 13px;
+}
+
+#print-body  h3 {
+  font-size: 16px;
+}

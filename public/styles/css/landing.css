@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'droid';
+  src: url("../../fonts/droid-sans/droidsans-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'droid_bold';
+  src: url("../../fonts/droid-sans/droidsans-bold-webfont.woff2") format("woff2"), url("../../fonts/droid-sans/droidsans-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "droid"; }
+
+.f-right {
+  float: right; }
+
+.inner {
+  width: 80%;
+  margin: 0 auto; }
+
+.hidden {
+  display: none; }
+
+.visible {
+  display: block; }
+
+p, a {
+  font-family: "droid";
+  font-size: 18px;
+  color: black; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "droid_bold"; }
+
+.outer-wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+button {
+  border: none;
+  background: none; }
+
+input.ng-dirty.ng-valid {
+  box-shadow: inset 0 0 3px #0072bc; }
+
+input.ng-dirty.ng-invalid {
+  box-shadow: inset 0 0 3px red; }
+
+#home-wrap {
+  background-image: url("/img/refugee-camp-2017-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+#home-wrap .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+
+#login-wrap {
+  order: 1;
+  border-radius: 10px;
+  background: #eeeff0;
+  padding: 2em 0em 3em 0em;
+  text-align: center;
+  width: 25%;
+  min-height: 20em; }
+
+#login-wrap form {
+  width: 90%;
+  margin: 0 auto; }
+
+.form-err-msg {
+  margin: 1em 0; }
+
+#login-wrap input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; }
+
+#login-wrap input[type="text"], #login-wrap input[type="email"], #login-wrap input[type="password"] {
+  outline: none;
+  margin: .7em 0;
+  padding: 1em;
+  width: 90%;
+  font-size: 1em; }
+
+#login-wrap input[type="submit"] {
+  border: none;
+  background-color: #0072bc;
+  font-family: "droid";
+  font-size: 1em;
+  color: white;
+  padding: .7em 2em;
+  display: block;
+  min-width: 50%;
+  margin: 2em auto 1em auto;
+  text-align: center; }
+
+#login-wrap #create-account-link {
+  display: block;
+  margin: 1em auto;
+  font-size: 1em;
+  color: #0072bc; }
