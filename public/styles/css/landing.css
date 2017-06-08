@@ -75,6 +75,12 @@ input.ng-dirty.ng-invalid {
   justify-content: center;
   height: 100%; }
 
+#home-wrap .logo-wrap {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  padding-bottom: 2em; }
+
 #login-wrap {
   order: 1;
   border-radius: 10px;

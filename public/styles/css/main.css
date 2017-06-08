@@ -75,6 +75,12 @@ input.ng-dirty.ng-invalid {
   justify-content: center;
   height: 100%; }
 
+#home-wrap .logo-wrap {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  padding-bottom: 2em; }
+
 #login-wrap {
   order: 1;
   border-radius: 10px;
@@ -447,14 +453,40 @@ input.ng-dirty.ng-invalid {
   border-top: 0; }
 
 .visit-details-div-inner {
-  padding-left: 1em; }
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column; }
 
-.visit-details-div-inner p {
-  padding: .35em .15em .35em 0;
-  max-width: 95%; }
+.visit-details--qa-wrap {
+  order: 1;
+  display: flex;
+  flex-direction: row; }
 
-.visit-details-div-inner p:first-child {
-  padding-top: 0; }
+.visit-details--col {
+  flex: 1; }
+
+.visit-details--col .col-1 {
+  order: 1; }
+
+.visit-details--col .col-2 {
+  order: 2; }
+
+.visit-details--question, .visit-details--commentary-btn {
+  padding: .5em 0;
+  font-family: "droid_bold"; }
+
+.visit-details--answer {
+  margin: .7em 0;
+  display: block;
+  font-family: "droid"; }
+
+.visit-details--commentary-btn {
+  border: 2px solid black;
+  padding: 1em;
+  font-size: .8em; }
+
+.visit-details--commentary-wrap {
+  order: 2; }
 
 .visit-content-wrap.ng-hide {
   opacity: 0; }

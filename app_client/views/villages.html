@@ -38,66 +38,124 @@
                     <!-- OVERVIEW SECTION -->
                                 <div class="visit-details-div visible" data-id="{{ i._id }}" data-block="{{i._id + '-overview' }}">
                                     <div class="visit-details-div-inner">
-                                        <p>Information collected by: {{ i.collector_name }}</p>
-                                        <p>Organization of collector: {{ i.org || "Not reported" }}</p>
-                                        <p>Role of informant: {{ i.source_role || "Not reported" }}</p>
-                                        <p>Village status: {{ i.village_status || "Not reported" }}</p>
-                                        <p>Estimated current population: {{ i.population_current || "Not reported" }}</p>
-                                        <p>Estimated pre-conflict population: {{ i.population_pre || "Not reported" }}</p>
+                                        <div class="visit-details--qa-wrap">
+                                            <div class="visit-details--col col-1">
+                                                <p class="visit-details--question">Information collected by:
+                                                    <span class="visit-details--answer">{{ i.collector_name }}</span></p>
+                                                <p class="visit-details--question">Organization of collector:
+                                                    <span class="visit-details--answer">{{ i.org || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Role of informant:
+                                                    <span class="visit-details--answer">{{ i.source_role || "Not reported" }}</span></p>
+                                            </div>
+                                            <div class="visit-details--col col-2">
+                                                <p class="visit-details--question">Village status:
+                                                    <span class="visit-details--answer">{{ i.village_status || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Estimated current population:
+                                                    <span class="visit-details--answer">{{ i.population_current || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Estimated pre-conflict population:
+                                                    <span class="visit-details--answer">{{ i.population_pre || "Not reported" }}</span></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                     <!-- SHELTER SECTION -->
                                 <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-shelter' }}">
                                     <div class="visit-details-div-inner">
-                                        <p>Number of individual houses: {{ i.ind_houses || "Not reported" }}</p>
-                                        <p>Number of multi-storey houses: {{ i.multi_houses || "Not reported" }}</p>
-                                        <p>Individual houses in need of light repairs: {{ i.ind_houses_light || "Not reported" }}</p>
-                                        <p>Individual houses in need of medium repairs: {{ i.ind_houses_medium || "Not reported" }}</p>
-                                        <p>Individual houses in need of reconstruction: {{ i.ind_houses_recon || "Not reported" }}</p>
-                                        <p>Multi-storey houses in need of light/med repairs: {{ i.ind_houses_recon || "Not reported" }}</p>
+                                        <div class="visit-details--qa-wrap">
+                                            <div class="visit-details--col col-1">
+                                                <p class="visit-details--question">Number of individual houses:
+                                                    <span class="visit-details--answer">{{ i.ind_houses || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Number of multi-storey houses:
+                                                    <span class="visit-details--answer">{{ i.multi_houses || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Individual houses in need of light repairs:
+                                                    <span class="visit-details--answer">{{ i.ind_houses_light || "Not reported" }}</span></p>
+                                            </div>
+                                            <div class="visit-details--col col-2">
+                                                <p class="visit-details--question">Individual houses in need of medium repairs:
+                                                    <span class="visit-details--answer">{{ i.ind_houses_medium || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Individual houses in need of reconstruction:
+                                                    <span class="visit-details--answer">{{ i.ind_houses_recon || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Multi-storey houses in need of light/med repairs:
+                                                    <span class="visit-details--answer">{{ i.ind_houses_recon || "Not reported" }}</span></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                     <!-- INFRASTRUCTURE SECTION -->
                                 <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-infrastructure' }}">
                                     <div class="visit-details-div-inner">
-                                        <p>Number of houses using gas for heating: {{ i.gas || "Not reported" }}</p>
-                                        <p>Number of houses with central heating: {{ i.central || "Not reported" }}</p>
-                                        <p>Number of houses which use coal or wood for heating: {{ i.coal_wood || "Not reported" }}</p>
-                                        <p>Is fuel readily available in the location? {{ i.fuel || "Not reported" }}</p>
-                                        <p>Does the village experience disruptions to electricity? {{ (i.elect_disrupt == null) ? "Not reported" : i.elect_disrupt ? "Yes" : "No"}}{{ i.elect_disrupt_freq ? ", " + i.elect_disrupt_freq : '' }}</p>
-                                        <p>Does the village experience disruptions to water? {{ (i.water_disrupt == null) ? "Not reported" : i.water_disrupt ? "Yes" : "No"}}{{ i.water_disrupt_freq ? ", " + i.water_disrupt_freq : '' }}</p>
-                                        <p>Does the village experience disruptions to gas? {{ (i.gas_disrupt == null) ? "Not reported" : i.gas_disrupt ? "Yes" : "No"}}{{ i.gas_disrupt_freq ? ", " + i.gas_disrupt_freq : '' }}</p>
-                                        <p>Is transportation a concern? {{ (i.transport == null) ? "Not reported" : i.transport ? "Yes" : "No" }} </p>
-                                        <button class="visit-details-commentary-btn" ng-show="i.transport_detail" ng-click="showTransportDetails = !showTransportDetails">Show Details about transport</button>
-                                        <div class="visit-details-commentary-div" ng-show="showTransportDetails">
-                                            <p class="visit-details-commentary-div-item">{{ i.transport_detail }}</p>
+                                        <div class="visit-details--qa-wrap">
+                                            <div class="visit-details--col col-1">
+                                                <p class="visit-details--question">Number of houses using gas for heating:
+                                                    <span class="visit-details--answer">{{ i.gas || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Number of houses with central heating:
+                                                    <span class="visit-details--answer">{{ i.central || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Number of houses which use coal or wood for heating:
+                                                    <span class="visit-details--answer">{{ i.coal_wood || "Not reported" }}</span></p>
+                                                <p class="visit-details--question">Is fuel readily available in the location?
+                                                    <span class="visit-details--answer">{{ i.fuel || "Not reported" }}</span></p>
+                                            </div>
+                                            <div class="visit-details--col col-2">
+                                                <p class="visit-details--question">Does the village experience disruptions to electricity?
+                                                    <span class="visit-details--answer">{{ (i.elect_disrupt == null) ? "Not reported" : i.elect_disrupt ? "Yes" : "No"}}{{ i.elect_disrupt_freq ? ", " + i.elect_disrupt_freq : '' }}</span></p>
+                                                <p class="visit-details--question">Does the village experience disruptions to water?
+                                                    <span class="visit-details--answer">{{ (i.water_disrupt == null) ? "Not reported" : i.water_disrupt ? "Yes" : "No"}}{{ i.water_disrupt_freq ? ", " + i.water_disrupt_freq : '' }}</span></p>
+                                                <p class="visit-details--question">Does the village experience disruptions to gas?
+                                                    <span class="visit-details--answer">{{ (i.gas_disrupt == null) ? "Not reported" : i.gas_disrupt ? "Yes" : "No"}}{{ i.gas_disrupt_freq ? ", " + i.gas_disrupt_freq : '' }}</span></p>
+                                                <p class="visit-details--question">Is transportation a concern?
+                                                    <span class="visit-details--answer">{{ (i.transport == null) ? "Not reported" : i.transport ? "Yes" : "No" }}</span></p>
+                                            </div>
                                         </div>
-                                        <button class="visit-details-commentary-btn" ng-show=" i.infrastructure_detail != null " ng-click="showInfrastructureDetails = !showInfrastructureDetails">Show commentary about infrastructure</button>
-                                        <div class="visit-details-commentary-div" ng-show="showInfrastructureDetails">
-                                            <p class="visit-details-commentary-div-item">{{ i.infrastructure_detail }}</p>
+                                        <div class="visit-details--commentary-wrap">
+                                            <button class="visit-details-commentary-btn" ng-show="i.transport_detail" ng-click="showTransportDetails = !showTransportDetails">Show Details about transport</button>
+                                            <div class="visit-details-commentary-div" ng-show="showTransportDetails">
+                                                <p class="visit-details--question visit-details-commentary-div-item"><span class="visit-details--answer">{{ i.transport_detail }}</span></p>
+                                            </div>
+                                            <button class="visit-details--commentary-btn" ng-show=" i.infrastructure_detail != null " ng-click="showInfrastructureDetails = !showInfrastructureDetails">Show commentary about infrastructure</button>
+                                            <div class="visit-details-commentary-div" ng-show="showInfrastructureDetails">
+                                                <p class="visit-details--question visit-details-commentary-div-item"><span class="visit-details--answer">{{ i.infrastructure_detail }}</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                     <!--PROTECTION SECTION-->
                                 <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-protection' }}">
                                     <div class="visit-details-div-inner">
-                                        <p>Is community tension a concern? {{ (i.tension == null) ? "Not reported" : i.tension ? "Yes" : "No" }}</p>
-                                        <p>Is land expropriation a concern? {{ (i.expropriation == null) ? "Not reported" : i.expropriation ? "Yes" : "No" }}</p>
-                                        <p>Is discrimination against IDPs/Returnees a concern? {{ (i.discrimination == null) ? "Not reported" : i.discrimination ? "Yes" : "No" }}</p>
-                                        <p>Is human trafficking a concern? {{ (i.trafficking == null) ? "Not reported" : i.trafficking ? "Yes" : "No" }}</p>
-                                        <p>Is corruption a concern? {{ (i.corruption == null) ? "Not reported" : i.corruption ? "Yes" : "No" }}</p>
-                                        <p>Is presence of armed forces a concern? {{ (i.armed_forces == null) ? "Not reported" : i.armed_forces ? "Yes" : "No" }}</p>
-                                        <p>Is forced recruitment a concern? {{ (i.forced_recruit == null) ? "Not reported" : i.forced_recruit ? "Yes" : "No" }}</p>
-                                        <p>Is freedom of movement a concern? {{ (i.freedom_of_movement == null) ? "Not reported" : i.freedom_of_movement ? "Yes" : "No" }}</p>
-                                        <p>Is the presence of ERWs a concern? {{ (i.erw == null) ? "Not reported" : i.erw ? "Yes" : "No" }}</p>
-                                        <p>How is the relationship between the host community and IDPs?
-                                            <br> {{ (i.idp_host_relationship == null) ? "Not reported" : i.idp_host_relationship }}</p>
-                                        <p>How has the number of returnees changed in the last 30 days?
-                                            <br> {{ (i.returnees_change == null) ? "Not reported" : i.returnees_change }}</p>
-                                        <p>How has the number of idps changed in the last 30 days? {{ (i.idps == null) ? "Not reported" : i.idps }}</p>
-                                        <button class="visit-details-commentary-btn" ng-show=" i.protection_detail != null " ng-click="showProtectionDetails = !showProtectionDetails">Show commentary about protection concerns</button>
-                                        <div class="visit-details-commentary-div" ng-show="showProtectionDetails">
-                                            <p class="visit-details-commentary-div-item">{{ i.protection_detail }}</p>
+                                        <div class="visit-details--qa-wrap">
+                                            <div class="visit-details--col col-1">
+                                                <p class="visit-details--question">Is community tension a concern?
+                                                    <span class="visit-details--answer">{{ (i.tension == null) ? "Not reported" : i.tension ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is land expropriation a concern?
+                                                    <span class="visit-details--answer">{{ (i.expropriation == null) ? "Not reported" : i.expropriation ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is discrimination against IDPs/Returnees a concern?
+                                                    <span class="visit-details--answer">{{ (i.discrimination == null) ? "Not reported" : i.discrimination ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is human trafficking a concern?
+                                                    <span class="visit-details--answer">{{ (i.trafficking == null) ? "Not reported" : i.trafficking ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is corruption a concern?
+                                                    <span class="visit-details--answer">{{ (i.corruption == null) ? "Not reported" : i.corruption ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is presence of armed forces a concern?
+                                                    <span class="visit-details--answer">{{ (i.armed_forces == null) ? "Not reported" : i.armed_forces ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is forced recruitment a concern?
+                                                    <span class="visit-details--answer">{{ (i.forced_recruit == null) ? "Not reported" : i.forced_recruit ? "Yes" : "No" }}</span></p>
+                                            </div>
+                                            <div class="visit-details--col col-2">
+                                                <p class="visit-details--question">Is freedom of movement a concern?
+                                                    <span class="visit-details--answer">{{ (i.freedom_of_movement == null) ? "Not reported" : i.freedom_of_movement ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">Is the presence of ERWs a concern?
+                                                    <span class="visit-details--answer">{{ (i.erw == null) ? "Not reported" : i.erw ? "Yes" : "No" }}</span></p>
+                                                <p class="visit-details--question">How is the relationship between the host community and IDPs?
+                                                    <span class="visit-details--answer">{{ (i.idp_host_relationship == null) ? "Not reported" : i.idp_host_relationship }}</span></p>
+                                                <p class="visit-details--question">How has the number of returnees changed in the last 30 days?
+                                                    <span class="visit-details--answer">{{ (i.returnees_change == null) ? "Not reported" : i.returnees_change }}</span></p>
+                                                <p class="visit-details--question">How has the number of idps changed in the last 30 days?
+                                                    <span class="visit-details--answer">{{ (i.idps == null) ? "Not reported" : i.idps }}</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="visit-details--commentary-wrap">
+                                            <button class="visit-details--commentary-btn" ng-show=" i.protection_detail != null " ng-click="showProtectionDetails = !showProtectionDetails">Show commentary about protection concerns</button>
+                                            <div class="visit-details-commentary-div" ng-show="showProtectionDetails">
+                                                <p class="visit-details--question visit-details-commentary-div-item"><span class="visit-details--answer">{{ i.protection_detail }}</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,16 +163,26 @@
                     <!--ASSISTANCE SECTION-->
                                 <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-assistance' }}">
                                     <div class="visit-details-div-inner">
-                                        <p>{{ !i.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</p>
-                                        <ul>
-                                            <li ng-repeat="(key, val) in i.assistance_type">{{ val ? key : "" }}</li>
-                                        </ul>
-                                        <p>Organizations which have provided assistance: {{ ( i.assistance_orgs !== null) ? i.assistance_orgs : "No information reported" }}</p>
-                                        <p>Perceived level of need for NFIs: {{ (i.nfi_need !== null) ? i.nfi_need : "No information reported" }}</p>
-                                        <p>{{ !i.deficits ? "No information about deficits of goods or services" : "There are deficits of the following goods and services" }}</p>
-                                        <ul>
-                                            <li ng-repeat="(key, val) in i.deficits">{{ val ? key : "" }}</li>
-                                        </ul>
+                                        <div class="visit-details--qa-wrap">
+                                            <div class="visit-details--col col-1">
+                                                <p class="visit-details--question">
+                                                    <span class="visit-details--answer">{{ !i.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</span></p>
+                                                <ul>
+                                                    <li ng-repeat="(key, val) in i.assistance_type">{{ val ? key : "" }}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="visit-details--col col-2">
+                                                <p class="visit-details--question">Organizations which have provided assistance:
+                                                    <span class="visit-details--answer">{{ ( i.assistance_orgs !== null) ? i.assistance_orgs : "No information reported" }}</span></p>
+                                                <p class="visit-details--question">Perceived level of need for NFIs:
+                                                    <span class="visit-details--answer">{{ (i.nfi_need !== null) ? i.nfi_need : "No information reported" }}</span></p>
+                                                <p class="visit-details--question">There are deficits of the following goods and services:
+                                                    <span class="visit-details--answer">{{ !i.deficits ? "No information about deficits of goods or services" : "There are deficits of the following goods and services" }}</span></p>
+                                                <ul>
+                                                    <li ng-repeat="(key, val) in i.deficits">{{ val ? key : "" }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                     <!--COMMENTARY SECTION-->
