@@ -24,6 +24,7 @@
        var login = function(user) {
 
            return $http.post('/api/login', user).then(function(data) {
+               console.log("authentication service data " + data);
                saveToken(data.data.token);
            });
        };

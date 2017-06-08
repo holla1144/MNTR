@@ -42,7 +42,8 @@ function homeCtrl (authentication, $location) {
                 newUser.email = vm.registerEmail;
                 newUser.password = vm.registerPassword;
 
-                authentication.register(newUser).then(function() {
+                authentication.register(newUser).then(function(data) {
+                    console.log(data);
                     $location.path('/villages')
                 }, function(err) {
                     console.log(err);
