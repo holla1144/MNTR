@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11268060-c9d1-4e49-b975-e3f1d02d8524" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_client/common/directives/visit-details/visit-details.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_client/common/directives/visit-details/visit-details.template.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/scss/landing.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/scss/navigation.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/scss/print-styles.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/scss/visit-form.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/scss/visit-report-detail.scss" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app_client/common/directives/print-visit-form/print-visit-form.js" afterPath="$PROJECT_DIR$/app_client/common/directives/print-visit-form/visit-details-print.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app_client/common/directives/print-visit-form/print-visit-form.template.html" afterPath="$PROJECT_DIR$/app_client/common/directives/print-visit-form/visit-details-print.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/controllers/locationCtrl.js" afterPath="$PROJECT_DIR$/app_api/controllers/locationCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/models/db.js" afterPath="$PROJECT_DIR$/app_api/models/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/models/visit.js" afterPath="$PROJECT_DIR$/app_api/models/visit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/common/directives/navigation/navigation.template.html" afterPath="$PROJECT_DIR$/app_client/common/directives/navigation/navigation.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/common/directives/visit-form/visit-form.template.html" afterPath="$PROJECT_DIR$/app_client/common/directives/visit-form/visit-form.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/controllers/villageCtrl.js" afterPath="$PROJECT_DIR$/app_client/controllers/villageCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/index.html" afterPath="$PROJECT_DIR$/app_client/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/views/about.html" afterPath="$PROJECT_DIR$/app_client/views/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/views/home.html" afterPath="$PROJECT_DIR$/app_client/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_client/views/villages.html" afterPath="$PROJECT_DIR$/app_client/views/villages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/base.css" afterPath="$PROJECT_DIR$/public/styles/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/landing.css" afterPath="$PROJECT_DIR$/public/styles/css/landing.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/main.css" afterPath="$PROJECT_DIR$/public/styles/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/navigation.css" afterPath="$PROJECT_DIR$/public/styles/css/navigation.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/print-styles.css" afterPath="$PROJECT_DIR$/public/styles/css/print-styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/visit-form.css" afterPath="$PROJECT_DIR$/public/styles/css/visit-form.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/css/visit-report-detail.css" afterPath="$PROJECT_DIR$/public/styles/css/visit-report-detail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/scss/base.scss" afterPath="$PROJECT_DIR$/public/styles/scss/base.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/scss/main.scss" afterPath="$PROJECT_DIR$/public/styles/scss/main.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -88,11 +60,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="visit-form.template.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="visit-form.template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_client/common/directives/visit-form/visit-form.template.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="86" column="38" lean-forward="false" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+              <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_api/models/users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_api/models/db.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -187,7 +189,6 @@
         <option value="$PROJECT_DIR$/app_client/common/services/authentication.service.js" />
         <option value="$PROJECT_DIR$/app_client/controllers/homeCtrl.js" />
         <option value="$PROJECT_DIR$/app_client/views/home.html" />
-        <option value="$PROJECT_DIR$/app_api/models/db.js" />
         <option value="$PROJECT_DIR$/public/styles/scss/visit-report-detail.scss" />
         <option value="$PROJECT_DIR$/app_api/models/visit.js" />
         <option value="$PROJECT_DIR$/app_api/controllers/locationCtrl.js" />
@@ -211,6 +212,7 @@
         <option value="$PROJECT_DIR$/app_client/controllers/villageCtrl.js" />
         <option value="$PROJECT_DIR$/app_client/index.html" />
         <option value="$PROJECT_DIR$/app_client/common/directives/visit-form/visit-form.template.html" />
+        <option value="$PROJECT_DIR$/app_api/models/db.js" />
       </list>
     </option>
   </component>
@@ -277,25 +279,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="va-node-app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="data">
+            <PATH_ELEMENT USER_OBJECT="app_client">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -327,7 +311,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controllers">
+            <PATH_ELEMENT USER_OBJECT="models">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -813,12 +797,12 @@
       <workItem from="1496938384713" duration="1889000" />
       <workItem from="1496946289426" duration="9374000" />
       <workItem from="1497007479529" duration="17639000" />
-      <workItem from="1497165672936" duration="21583000" />
+      <workItem from="1497165672936" duration="22324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="391452000" />
+    <option name="totallyTimeSpent" value="392193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -992,13 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_api/models/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6525">
@@ -1048,20 +1025,6 @@
         <state relative-caret-position="100">
           <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_api/models/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1228,7 +1191,31 @@
     <entry file="file://$PROJECT_DIR$/app_client/common/directives/visit-form/visit-form.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="86" column="38" lean-forward="false" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="38" />
+          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/models/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/models/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
           <folding />
         </state>
       </provider>
