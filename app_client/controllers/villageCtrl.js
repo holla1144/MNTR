@@ -11,6 +11,10 @@ function villageCtrl($location, locationData, authentication) {
         $location.path('/');
     } else {
 
+        //vm.loc is a path that is used to generate the 'contact line' in Google static maps. It is composed of lng, lat pairs. 
+
+        vm.loc = "48.5878889,39.6723016|48.5865845,39.6931424|48.5875512,39.6844304|48.5828914,39.6338449|48.5875527,39.619128|48.5750916,39.609064|48.5781734,39.5975752|48.5931966,39.6035286|48.5936245,39.591907|48.592704,39.569621|48.6002494,39.5600241|48.5871801,39.5470753|48.585863,39.5329372|48.5947255,39.5372006|48.5982716,39.5332648|48.6078383,39.5308738|48.6138994,39.5291578|48.6298267,39.5204161|48.6359723,39.5157901|48.6308475,39.4765508|48.6298298,39.4683517|48.6407555,39.4662526|48.6422262,39.4541653|48.658262,39.4488251|48.660239,39.4205651|48.6728696,39.4128207|48.6760214,39.4009326|48.6874263,39.3829074|48.7013531,39.356792|48.714196,39.3645823|48.7158112,39.3764073|48.7264064,39.3578398|48.7348017,39.3630979|48.7599096,39.3483747|48.7628389,39.3552169|48.7703383,39.3470912|48.7679173,39.3363306|48.7779273,39.3246237|48.7743899,39.3067239|48.7519506,39.2863987|48.7511299,39.2805649|48.7446718,39.2688198|48.7438382,39.261871|48.7331803,39.2558943|48.719536,39.250417|48.7134189,39.233245|48.7079347,39.221906|48.7041204,39.2012901|48.7084941,39.1987004|48.6946215,39.1827166|48.6849068,39.1760821|48.6758261,39.1446981|48.6653878,39.1388352|48.6620976,39.1230214|48.652843,39.106736|48.653212,39.079785|48.6493577,39.0560179|48.6541277,39.0343388|48.6583368,39.0211201|48.6619654,39.0176367|48.6613169,39.0292971|48.679469,39.021929|48.6946678,39.0190353|48.712939,39.000692|48.712373,38.992882|48.7166976,39.002114|48.7282917,38.9991946|48.745646,38.9712851|48.748271,38.9593046|48.7359536,38.9547054|48.7372183,38.9361465|48.7483222,38.9403041|48.7474767,38.9326603|48.7485977,38.914294|48.7524407,38.9014911|48.7515005,38.8581627|48.745082,38.832374|48.7043467,38.8239413|48.712928,38.77667|48.7164413,38.6973372|48.7129238,38.6633226|48.671693,38.52047|48.6412427,38.4398194|48.583648,38.40374|48.488061,38.406581|48.4013622,38.2783019|48.423049,38.208046|48.4192558,38.0441032|48.3964051,38.005056|48.3566112,37.924384|48.2947205,37.8933169|48.204003,37.837751|48.151852,37.8069618|48.10848,37.7856201|48.0907551,37.7543578|48.0577166,37.6807105|47.9879328,37.5301137|47.906529,37.538985|47.8430564,37.5753311|47.7264663,37.6114488|47.661341,37.77797|47.5314715,37.7925108|47.5104152,37.8166384|47.4678668,37.8870299|47.4361025,37.8671402|47.379079,37.8376537|47.3645264,37.8511788|47.3523648,37.8597941|47.343442,37.8545226|47.3126327,37.8345235|47.311035,37.825026|47.272576,37.8084204|47.2569789,37.8311093|47.1872594,37.7945368|47.162914,37.79283|47.096539,37.829404",
+
         vm.oblasts = [
 
             {
@@ -186,6 +190,12 @@ function villageCtrl($location, locationData, authentication) {
 
             vm.visit.location = vm.villageDetails.Admin4;
 
+            vm.visit.locationName = vm.villageDetails.Name;
+
+            vm.visit.locationRayon = vm.villageDetails.NameRada;
+
+            vm.visit.locationOblast = vm.villageDetails.NameObl;
+
             vm.visit.collector = null;
 
             vm.visit.collectorPhone = null;
@@ -284,7 +294,8 @@ function villageCtrl($location, locationData, authentication) {
         vm.submitForm = function(event) {
 
             //logic for making sure required fields in the 'visit form' are filled in
-
+            let today = new Date();
+            let visitDateTest =  new Date(vm.visit.date);
 
             if (vm.visit.collector == null) {
 
@@ -308,12 +319,16 @@ function villageCtrl($location, locationData, authentication) {
                     } else if (dateFormatArray[1] > 31 || dateFormatArray <= 0) {
                         vm.triggerFormSubmitError("Sorry, looks like you entered an invalid date. " +
                             "Please make sure your visit date follows the format mm/dd/yyyy");
-                    } else if (dateFormatArray[2] < 2017 || dateFormatArray[2] > 2100) {
+                    } else if (dateFormatArray[2] < 2017) {
                         vm.triggerFormSubmitError("Sorry, looks like you entered an invalid date. " +
-                            "Please make sure your visit date follows the format mm/dd/yyyy");
+                            "Please make sure your visit date follows the format mm/dd/yyyy" +
+                            "and is between January 1st 2017 and today.");
+                    } else if (visitDateTest > today) {
+                        vm.triggerFormSubmitError("Your visit should have a date that is earlier " +
+                            "than today.");
                     } else {
 
-                        let email = vm.visit.collectorEmail;
+                        let email = vm.visit.collectorEmail
 
                         let test = /@/.test(email);
 
@@ -372,7 +387,8 @@ function villageCtrl($location, locationData, authentication) {
 
             vm.modalOpen('#form-print-modal');
 
-            window.initMap(vm.selectedCoords, vm.selectedTitle, 10, 'map2');
+
+
         };
 
         window.initMap = function(coords, title, zoom, elementId) {
@@ -382,7 +398,8 @@ function villageCtrl($location, locationData, authentication) {
             let center = coords;
             let map = new google.maps.Map(document.getElementById(elementId), {
                 zoom: zoom,
-                center: center
+                center: center,
+                disableDefaultUI: true,
             });
 
             let myParser = new geoXML3.parser({map: map, zoom:false});
@@ -391,7 +408,7 @@ function villageCtrl($location, locationData, authentication) {
             let marker = new google.maps.Marker({
                 position: center,
                 title: title,
-                map: map
+                map: map,
 
             });
         };
@@ -408,7 +425,7 @@ function villageCtrl($location, locationData, authentication) {
                 w.document.write('<link rel="stylesheet" type="text/css" ' +
                     'href="/styles/css/main.css"><html id="print-html">' +
                     '<body id="print-body">' + bodyContent +
-                    '<script type="text/javascript">setTimeout(function() {window.print()}, 1000)</script></body></html>');
+                    '<script type="text/javascript">setTimeout(function() {window.print()}, 1000)</script ></body></html>');
             };
 
         vm.init = function() {

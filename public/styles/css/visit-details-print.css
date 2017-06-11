@@ -1,64 +1,51 @@
-@import 'base';
-//PRINT REPORT
-
 #form-print-modal {
-  overflow: auto;
-};
+  overflow: auto; }
+
 #print-report-head-text h3:first-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
+
 #form-print-modal-inner {
   margin-top: 1em;
   background-color: white;
   padding: 1.6em 0;
   position: relative;
   display: flex;
-  flex-direction: column;
-
-}
+  flex-direction: column; }
 
 #form-print-modal-inner p {
-  padding: .1em 0;
-}
+  padding: .1em 0; }
+
+.form-section.flexbox-section {
+  display: flex;
+  flex-direction: row; }
 
 #print-report-head {
   order: 1;
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 #print-report-head-text {
   order: 1;
-  flex: 1;
-}
+  flex: 1; }
 
-#map2 {
+#visit-details-print--map--zoom {
   order: 2;
   flex: 2;
   min-width: 10em;
   min-height: 10em;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 #print-report-overview {
-  order: 2;
-}
-
-#print-report-overview-text {
-}
-
+  order: 2; }
 
 #print-report-shelter {
-  order: 3;
-}
+  order: 3; }
 
 #print-report-infrastructure {
-  order: 4;
-}
+  order: 4; }
 
 #print-report-protection {
-  order: 5;
-}
+  order: 5; }
 
 #print-report-print-btn {
   height: auto;
@@ -66,21 +53,16 @@
   margin: 2em auto;
   order: 6;
   min-width: 10em;
-  padding: 2em 4em;
-}
+  padding: 2em 4em; }
 
-#print-body .inner{
-  width: 100%;
-}
+#print-body .inner-wrap {
+  width: 100%; }
 
 #print-body .form-section {
-  width: 100%;
-}
+  width: 100%; }
 
 #print-body p {
-  font-size: 13px;
-}
+  font-size: 13px; }
 
-#print-body  h3 {
-  font-size: 16px;
-}
+#print-body h3 {
+  font-size: 16px; }

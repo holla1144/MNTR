@@ -63,6 +63,21 @@ input.ng-dirty.ng-valid {
 input.ng-dirty.ng-invalid {
   box-shadow: inset 0 0 3px red; }
 
+.form-section {
+  width: 97%;
+  margin: 1em auto 0 auto;
+  border: 2px solid black;
+  padding: 2em; }
+
+.visit-details--col {
+  flex: 1; }
+
+.visit-details--col.col-1 {
+  order: 1; }
+
+.visit-details--col.col-2 {
+  order: 2; }
+
 .btn, .visit-btn {
   height: 2.5em;
   font-size: 1em;
@@ -129,19 +144,10 @@ input.ng-dirty.ng-invalid {
   display: flex;
   flex-direction: row; }
 
-.visit-details--col {
-  flex: 1; }
-
-.visit-details--col .col-1 {
-  order: 1; }
-
-.visit-details--col .col-2 {
-  order: 2; }
-
 .visit-details--question, .visit-details--commentary-btn {
   padding: .5em 0;
   font-family: "droid_bold";
-  max-width: 17em; }
+  max-width: 20em; }
 
 .visit-details--answer {
   margin: .7em 0;

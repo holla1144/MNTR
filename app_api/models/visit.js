@@ -10,6 +10,20 @@ var visitschema = new Schema({
         required: true,
         type: Number
     },
+
+    location_admin4_en: {
+        required: true,
+        type: String
+    },
+
+    location_admin2_en: {
+        required: true,
+        type: String
+    },
+    location_admin1_en: {
+        required: true,
+        type: String
+    },
     collector_name: {
         required: true,
         type: String

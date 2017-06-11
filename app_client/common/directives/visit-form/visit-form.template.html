@@ -16,9 +16,9 @@
             <label class="label-reg" for="org">Collector organization: </label>
             <select id="org" ng-model="vm.visit.org">
                 <option disabled selected value> -- Select an Organization -- </option>
-                <option value="unhcr">UNHCR</option>
-                <option value="r2p">R2P</option>
-                <option value="proliska">Proliska</option>
+                <option value="UNHCR">UNHCR</option>
+                <option value="R2P">R2P</option>
+                <option value="Proliska">Proliska</option>
                 <option value="other">Other</option>
             </select><br>
             <label class="label-reg" for="source-name">Name of information source: </label>
@@ -28,10 +28,10 @@
             <label class="label-reg" for="source-role">Role of information source:</label>
             <select id="source-role" ng-model="vm.visit.sourceRole">
                 <option disabled selected value> -- Select a Role -- </option>
-                <option value="village-council">Member of village council</option>
-                <option value="ngo">Member of NGO/INGO</option>
+                <option value="Village-council">Member of village council</option>
+                <option value="NGO">Member of NGO/INGO</option>
                 <option value="CIMIC">CIMIC</option>
-                <option value="cbo">Member of community-based organization</option>
+                <option value="Community-based organization">Member of community-based organization</option>
                 <option value="other">Other</option>
                 <!--add 'if other' logic using form controller-->
             </select>
@@ -40,8 +40,8 @@
         <h3>Basic Information</h3>
             <label class="label-reg" for="status">Select the status of the location: </label>
                 <div class="optionGroup" id="status">
-                    <input type="radio" name="status" id="gca" ng-model="vm.visit.status"><label class="label-small">GCA</label><br>
-                    <input type="radio" name="status" id="ngca" ng-model="vm.visit.status"><label class="label-small">NGCA</label><br>
+                    <input type="radio" name="status" id="GCA" ng-model="vm.visit.status"><label class="label-small" for="gca">GCA</label><br>
+                    <input type="radio" name="status" id="NGCA" ng-model="vm.visit.status"><label class="label-small" for="ngca">NGCA</label><br>
                 </div>
             <label class="label-reg" for="pop-current">Estimated current population: </label>
             <input type="number" min="0" id="pop-current" ng-model="vm.visit.currentPop" integer><br>
@@ -49,11 +49,11 @@
             <input type="number" min="0" id="pop-pre" ng-model="vm.visit.prePop" integer><br>
             <label class="label-reg">Which authorities are present in the village?</label><br>
                 <div class="optionGroup">
-                    <input type="checkbox" name="authorities" id="village-council" ng-model="vm.visit.authorities.villageCouncil">
+                    <input type="checkbox" name="authorities" id="Village-council" ng-model="vm.visit.authorities.villageCouncil">
                     <label class="label-small" for="village-council">Village Council</label><br>
-                    <input type="checkbox" name="authorities" id="cimic" ng-model="vm.visit.authorities.cimic">
+                    <input type="checkbox" name="authorities" id="CIMIC" ng-model="vm.visit.authorities.cimic">
                     <label class="label-small" for="cimic">CIMIC</label><br>
-                    <input type="checkbox" name="authorities" id="military" ng-model="vm.visit.authorities.military">
+                    <input type="checkbox" name="authorities" id="Military" ng-model="vm.visit.authorities.military">
                     <label class="label-small" for="military">Military</label><br>
                 </div>
     </div>
@@ -85,73 +85,73 @@
         <label class="label-reg" for="elec-disrupt">Does the village experience disruptions to electricity?</label>
         <div id="elec-disrupt">
             <div class="optionGroup">
-                 <input type="radio" name="electricity" value="true" ng-model="vm.visit.electDisrupt"><label>Yes</label><br>
-                 <input type="radio" name="electricity" value="false" ng-model="vm.visit.electDisrupt"><label>No</label><br>
+                 <input type="radio" name="electricity" id="elec-disrupt-yes" value="true" ng-model="vm.visit.electDisrupt"><label for="elec-disrupt-yes">Yes</label><br>
+                 <input type="radio" name="electricity" id="elec-disrupt-no" value="false" ng-model="vm.visit.electDisrupt"><label for="elec-disrupt-no">No</label><br>
             </div>
             <div class="optionGroup" ng-show="vm.visit.electDisrupt == 'true'">
                 <label class="label-reg">How often do disruptions to electricity occur?</label><br>
 
-                <input type="radio" value="daily" ng-model="vm.visit.electDisruptFreq">
-                <label>Daily</label><br>
+                <input type="radio" value="daily" id="elec-disrupt-freq-daily" ng-model="vm.visit.electDisruptFreq">
+                <label for="elec-disrupt-freq-daily">Daily</label><br>
 
-                <input type="radio"  value="weekly" ng-model="vm.visit.electDisruptFreq">
-                <label>Weekly</label><br>
+                <input type="radio"  value="weekly" id="elec-disrupt-freq-weekly" ng-model="vm.visit.electDisruptFreq">
+                <label for="elec-disrupt-freq-weekly">Weekly</label><br>
 
-                <input type="radio" value="monthly" ng-model="vm.visit.electDisruptFreq">
-                <label>Monthly</label>
+                <input type="radio" value="monthly" id="elec-disrupt-freq-monthly" ng-model="vm.visit.electDisruptFreq">
+                <label for="elec-disrupt-freq-monthly">Monthly</label>
             </div>
         </div>
         <label class="label-reg" for="water-disrupt">Does the village experience disruptions to water supply?</label>
         <div id="water-disrupt">
             <div class="optionGroup">
-                <input type="radio" name="water" value="true" ng-model="vm.visit.waterDisrupt"><label class="label-small">Yes</label><br>
-                <input type="radio" name="water" value="alse" ng-model="vm.visit.waterDisrupt"><label class="label-small">No</label><br>
+                <input type="radio" name="water" id="water-disrupt-yes" value="true" ng-model="vm.visit.waterDisrupt"><label for="water-disrupt-yes" class="label-small">Yes</label><br>
+                <input type="radio" name="water" id="water-disrupt-no" value="alse" ng-model="vm.visit.waterDisrupt"><label for="water-disrupt-no" class="label-small">No</label><br>
             </div>
             <div class="optionGroup" ng-show="vm.visit.waterDisrupt == 'true'">
             <label class="label-reg">How often do disruptions to water occur?</label><br>
 
-            <input type="radio" value="daily" ng-model="vm.visit.waterDisruptFreq">
-            <label class="label-small">Daily</label><br>
+            <input type="radio" value="daily" id="water-disrupt-freq-daily" ng-model="vm.visit.waterDisruptFreq">
+            <label for="water-disrupt-freq-daily" class="label-small">Daily</label><br>
 
 
-            <input type="radio"  value="weekly" ng-model="vm.visit.waterDisruptFreq">
-            <label class="label-small">Weekly</label><br>
+            <input type="radio"  value="weekly" id="water-disrupt-freq-weekly" ng-model="vm.visit.waterDisruptFreq">
+            <label for="water-disrupt-freq-weekly" class="label-small">Weekly</label><br>
 
 
-            <input type="radio" value="monthly" ng-model="vm.visit.waterDisruptFreq">
-            <label class="label-small">Monthly</label>
+            <input type="radio" value="monthly" id="water-disrupt-freq-monthly" ng-model="vm.visit.waterDisruptFreq">
+            <label for="water-disrupt-freq-monthly" class="label-small">Monthly</label>
         </div>
         </div>
         <label class="label-reg" for="gas-disrupt">Does the village experience disruptions to gas supply?</label>
 
         <div id="gas-disrupt">
             <div class="optionGroup">
-                <input class="label-small" type="radio" ng-model="vm.visit.gasDisrupt" name="gas" value="true" ng-model="vm.visit.gasDisrupt"><label>Yes</label><br>
-                <input class="label-small" type="radio" ng-model="vm.visit.gasDisrupt" name="gas" value="false" ng-model="vm.visit.gasDisrupt"><label>No</label><br>
+                <input class="label-small" type="radio" ng-model="vm.visit.gasDisrupt" name="gas" id="gas-disrupt-yes" value="true" ng-model="vm.visit.gasDisrupt"><label for="gas-disrupt-yes">Yes</label><br>
+                <input class="label-small" type="radio" ng-model="vm.visit.gasDisrupt" name="gas" id="gas-disrupt-no" value="false" ng-model="vm.visit.gasDisrupt"><label for="gas-disrupt-no">No</label><br>
             </div>
             <div class="optionGroup" ng-show="vm.visit.gasDisrupt == 'true'">
                 <label class="label-reg">How often do disruptions to gas occur?</label><br>
 
-                <input type="radio" value="daily" ng-model="vm.visit.gasDisruptFreq">
-                <label class="label-small">Daily</label><br>
+                <input type="radio" value="daily" id="gas-disrupt-freq-daily" ng-model="vm.visit.gasDisruptFreq">
+                <label for="gas-disrupt-freq-daily" class="label-small">Daily</label><br>
 
-                <input type="radio" value="weekly" ng-model="vm.visit.gasDisruptFreq">
-                <label class="label-small">Weekly</label><br>
+                <input type="radio" value="weekly" id="gas-disrupt-freq-weekly" ng-model="vm.visit.gasDisruptFreq">
+                <label for="gas-disrupt-freq-weekly" class="label-small">Weekly</label><br>
 
-                <input type="radio" value="monthly" ng-model="vm.visit.gasDisruptFreq">
-                <label class="label-small">Monthly</label>
+                <input type="radio" value="monthly" id="gas-disrupt-freq-monthly" ng-model="vm.visit.gasDisruptFreq">
+                <label for="gas-disrupt-freq-monthly" class="label-small">Monthly</label>
             </div>
         </div>
 
         <label class="label-reg" for="fuelAvailibility">Is fuel readily available?</label>
              <div class="optionGroup" id="fuelAvailibility">
-                 <input class="label-small" type="radio" name="fuelAvailability" value="true" ng-model="vm.visit.fuelAvailable"><label>Yes</label><br>
-                 <input class="label-small" type="radio" name="fuelAvailability" value="false" ng-model="vm.visit.fuelAvailable"><label>No</label>
+                 <input class="label-small" type="radio" name="fuelAvailability" value="true" id="fuel-yes" ng-model="vm.visit.fuelAvailable"><label for="fuel-yes">Yes</label><br>
+                 <input class="label-small" type="radio" name="fuelAvailability" value="false" id="fuel-no" ng-model="vm.visit.fuelAvailable"><label for="fuel-no">No</label>
              </div>
         <label class="label-reg" for="transportation">Is transportation a concern?</label>
         <div class="optionGroup" id="transportation">
-            <input class="label-small" type="radio" name="transportation" value="true" ng-model="vm.visit.transportationIssue"><label>Yes</label><br>
-            <input class="label-small" type="radio" name="transportation" value="false" ng-model="vm.visit.transportationIssue"><label>No</label><br>
+            <input class="label-small" type="radio" name="transportation" id="trans-con-yes" value="true" ng-model="vm.visit.transportationIssue"><label for="trans-con-yes">Yes</label><br>
+            <input class="label-small" type="radio" name="transportation" id="trans-con-no" value="false" ng-model="vm.visit.transportationIssue"><label for="trans-con-no">No</label><br>
         </div>
         <div ng-show="vm.visit.transportationIssue">
             <label class="label-reg" for="transportDetail">Please provide more information on transport concerns</label>
@@ -165,48 +165,48 @@
         <h3>Protection</h3>
         <label class="label-reg" for="com-tension">Is Community Tension a concern?</label>
         <div class="optionGroup" id="com-tension">
-            <input type="radio" name="com-tension" value="true" ng-model="vm.visit.comTension"><label class="label-small">Yes</label><br>
-            <input type="radio" name="com-tension" value="false" ng-model="vm.visit.comTension"><label class="label-small">No</label><br>
+            <input type="radio" name="com-tension" value="true" id="com-tension-yes" ng-model="vm.visit.comTension"><label for="com-tension-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="com-tension" value="false" id="com-tension-no" ng-model="vm.visit.comTension"><label for="com-tension-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="expropriation">Is Land Expropriation a concern?</label>
         <div class="optionGroup" id="expropriation">
-            <input type="radio" name="expropriation" value="true" ng-model="vm.visit.expropriation"><label class="label-small">Yes</label><br>
-            <input type="radio" name="expropriation" value="false" ng-model="vm.visit.expropriation"><label class="label-small">No</label><br>
+            <input type="radio" name="expropriation" value="true" id="expropriation-yes" ng-model="vm.visit.expropriation"><label for="expropriation-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="expropriation" value="false" id="expropriation-no" ng-model="vm.visit.expropriation"><label for="expropriation-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="discrimination">Is Discrimination against IDPs/Returnees a concern?</label>
         <div class="optionGroup" id="discrimination">
-            <input type="radio" name="discrimination" value="true" ng-model="vm.visit.discrimination"><label class="label-small">Yes</label><br>
-            <input type="radio" name="discrimination" value="false" ng-model="vm.visit.discrimination"><label class="label-small">No</label><br>
+            <input type="radio" name="discrimination" value="true" id="discrimination-yes" ng-model="vm.visit.discrimination"><label for="discrimination-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="discrimination" value="false" id="discrimination-no" ng-model="vm.visit.discrimination"><label for="discrimination-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="trafficking">Is Human Trafficking a concern?</label>
         <div class="optionGroup" id="trafficking">
-            <input type="radio" name="trafficking" value="true" ng-model="vm.visit.trafficking"><label class="label-small">Yes</label><br>
-            <input type="radio" name="trafficking" value="false" ng-model="vm.visit.trafficking"><label class="label-small">No</label><br>
+            <input type="radio" name="trafficking" value="true" id="trafficking-yes" ng-model="vm.visit.trafficking"><label for="trafficking-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="trafficking" value="false" id="trafficking-no" ng-model="vm.visit.trafficking"><label for="trafficking-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="corruption">Is Corruption a concern?</label>
         <div class="optionGroup" id="corruption">
-            <input type="radio" name="corruption" value="true" ng-model="vm.visit.corruption"><label class="label-small">Yes</label><br>
-            <input type="radio" name="corruption" value="false" ng-model="vm.visit.corruption"><label class="label-small">No</label><br>
+            <input type="radio" name="corruption" value="true" id="corruption-yes" ng-model="vm.visit.corruption"><label for="corruption-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="corruption" value="false" id="corruption-no" ng-model="vm.visit.corruption"><label for="corruption-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="armed-forces">Is Presence of Armed Forces a concern?</label>
         <div class="optionGroup" id="armed-forces">
-            <input type="radio" name="armed-forces" value="true" ng-model="vm.visit.armedForces"><label class="label-small">Yes</label><br>
-            <input type="radio" name="armed-forces" value="false" ng-model="vm.visit.armedForces"><label class="label-small">No</label><br>
+            <input type="radio" name="armed-forces" value="true" id="armed-forces-yes" ng-model="vm.visit.armedForces"><label for="armed-forces-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="armed-forces" value="false" id="armed-forces-no" ng-model="vm.visit.armedForces"><label for="armed-forces-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="forced-recruitment">Is Forced Recruitment of Adults or Children a concern?</label>
         <div class="optionGroup" id="forced-recruitment">
-            <input type="radio" name="forced-recruitment" value="true" ng-model="vm.visit.forcedRecruit"><label class="label-small">Yes</label><br>
-            <input type="radio" name="forced-recruitment" value="false" ng-model="vm.visit.forcedRecruit"><label class="label-small">No</label><br>
+            <input type="radio" name="forced-recruitment" value="true" id="forced-recruit-yes" ng-model="vm.visit.forcedRecruit"><label for="forced-recruit-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="forced-recruitment" value="false" id="forced-recruit-no" ng-model="vm.visit.forcedRecruit"><label for="forced-recruit-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="freedomOfMovement">Is Freedom of Movement a concern?</label>
         <div class="optionGroup" id="freedomOfMovement">
-            <input type="radio" name="freedomOfMovement" value="true" ng-model="vm.visit.freedomOfMovement"><label class="label-small">Yes</label><br>
-            <input type="radio" name="freedomOfMovement" value="false" ng-model="vm.visit.freedomOfMovement"><label class="label-small">No</label><br>
+            <input type="radio" name="freedomOfMovement" value="true" id="free-move-yes" ng-model="vm.visit.freedomOfMovement"><label for="free-move-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="freedomOfMovement" value="false" id="free-move-no" ng-model="vm.visit.freedomOfMovement"><label for="free-move-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="erws">Are ERWs a a concern?</label>
         <div class="optionGroup" id="erws">
-            <input type="radio" name="erws" value="true" ng-model="vm.visit.erws"><label class="label-small">Yes</label><br>
-            <input type="radio" name="erws" value="false" ng-model="vm.visit.erws"><label class="label-small">No</label><br>
+            <input type="radio" name="erws" value="true" id="erws-yes" ng-model="vm.visit.erws"><label for="erws-yes" class="label-small">Yes</label><br>
+            <input type="radio" name="erws" value="false" id="erws-no" ng-model="vm.visit.erws"><label for="erws-no" class="label-small">No</label><br>
         </div>
         <label class="label-reg" for="protectionCommentary">Please elaborate on any protection concerns</label><br>
         <textarea id="protectionCommentary" ng-model="vm.visit.protectionDetail"></textarea><br>
@@ -221,57 +221,57 @@
         </div>
         <label class="label-reg" for="returneeChange">How has the number of returnees changed in the last 30 days?</label>
         <div class="optionGroup" id="returneeChange">
-            <input type="radio" name="returneeChange" value="increase" ng-model="vm.visit.returneeChange">
-            <label class="label-small">It has increased</label><br>
-            <input type="radio" name="returneeChange" value="no change" ng-model="vm.visit.returneeChange">
-            <label class="label-small">It has not changed</label><br>
-            <input type="radio" name="returneeChange" value="decrease" ng-model="vm.visit.returneeChange">
-            <label class="label-small">It has decreased</label><br>
+            <input type="radio" name="returneeChange" id="returnee-inc" value="increase" ng-model="vm.visit.returneeChange">
+            <label for="returnee-inc" class="label-small">It has increased</label><br>
+            <input type="radio" name="returneeChange" id="returnee-nochange" value="no change" ng-model="vm.visit.returneeChange">
+            <label for="returnee-nochange" class="label-small">It has not changed</label><br>
+            <input type="radio" name="returneeChange" id="returnee-dec" value="decrease" ng-model="vm.visit.returneeChange">
+            <label for="returnee-dec" class="label-small">It has decreased</label><br>
         </div>
         <label class="label-reg" for="returneeChange">How has the number of idps changed in the last 30 days?</label>
         <div class="optionGroup" id="idpChange">
-            <input type="radio" name="idpChange" value="increase" ng-model="vm.visit.idpChange">
-            <label class="label-small">It has increased</label><br>
-            <input type="radio" name="idpChange" value="no change" ng-model="vm.visit.idpChange">
-            <label class="label-small">It has not changed</label><br>
-            <input type="radio" name="idpChange" value="decrease" ng-model="vm.visit.idpChange">
-            <label class="label-small">It has decreased</label><br>
+            <input type="radio" name="idpChange" id="idp-inc" value="increase" ng-model="vm.visit.idpChange">
+            <label for="idp-inc" class="label-small">It has increased</label><br>
+            <input type="radio" name="idpChange" id="idp-nochange" value="no change" ng-model="vm.visit.idpChange">
+            <label for="idp-nochange" class="label-small">It has not changed</label><br>
+            <input type="radio" name="idpChange" id="idp-dec" value="decrease" ng-model="vm.visit.idpChange">
+            <label for="idp-dec" class="label-small">It has decreased</label><br>
         </div>
     </div>
     <div class="form-section">
         <h3>Assistance & Needs</h3>
         <label class="label-reg" for="assistanceTypes">What types of assistance have been received in the last 30 days?</label>
         <div class="optionGroup" id="assistanceTypes">
-            <input type="checkbox" name="assistanceType" value="shelter" ng-model="vm.visit.assistance.shelter">
-            <label class="label-small">Shelter</label><br>
-            <input type="checkbox" name="assistanceType" value="nfi" ng-model="vm.visit.assistance.nfi">
-            <label class="label-small">NFI</label><br>
-            <input type="checkbox" name="assistanceType" value="cash" ng-model="vm.visit.assistance.cash">
-            <label class="label-small">Cash</label><br>
-            <input type="checkbox" name="assistanceType" value="wash" ng-model="vm.visit.assistance.wash">
-            <label class="label-small">WASH</label><br>
-            <input type="checkbox" name="assistanceType" value="pss"  ng-model="vm.visit.assistance.pss">
-            <label class="label-small">Psychosocial Support</label><br>
+            <input type="checkbox" name="assistanceType"  id="shelter" value="shelter" ng-model="vm.visit.assistance.shelter">
+            <label for="shelter" class="label-small">Shelter</label><br>
+            <input type="checkbox" name="assistanceType" id="nfi" value="nfi" ng-model="vm.visit.assistance.nfi">
+            <label for="nfi" class="label-small">NFI</label><br>
+            <input type="checkbox" name="assistanceType" id="cash" value="cash" ng-model="vm.visit.assistance.cash">
+            <label for="cash" class="label-small">Cash</label><br>
+            <input type="checkbox" name="assistanceType" id="wash" value="wash" ng-model="vm.visit.assistance.wash">
+            <label for="wash" class="label-small">WASH</label><br>
+            <input type="checkbox" name="assistanceType" id="pss" value="pss"  ng-model="vm.visit.assistance.pss">
+            <label for="pss" class="label-small">Psychosocial Support</label><br>
         </div>
         <label class="label-reg" for="assistanceOrgs">Please list organizations from which assistance was received: </label><br>
         <input type="text" id="assistanceOrgs" ng-model="vm.visit.assistanceOrgs"><br>
         <label class="label-reg" for="nfiNeed">Please indicate the severity of the need for NFIs</label>
         <div class="optionGroup" id="nfiNeed">
-            <input type="radio" name="nfiNeed" value="none" ng-model="vm.visit.nfiNeed">
-            <label class="label-small">None</label><br>
-            <input type="radio" name="nfiNeed" value="moderate" ng-model="vm.visit.nfiNeed">
-            <label class="label-small">Moderate</label><br>
-            <input type="radio" name="nfiNeed" value="severe" ng-model="vm.visit.nfiNeed">
-            <label class="label-small">Severe</label><br>
+            <input type="radio" name="nfiNeed" id="nfi-none" value="none" ng-model="vm.visit.nfiNeed">
+            <label for="nfi-none" class="label-small">None</label><br>
+            <input type="radio" name="nfiNeed" id="nfi-moderate" value="moderate" ng-model="vm.visit.nfiNeed">
+            <label for="nfi-moderate" class="label-small">Moderate</label><br>
+            <input type="radio" name="nfiNeed" id="nfi-severe" value="severe" ng-model="vm.visit.nfiNeed">
+            <label for="nfi-severe" class="label-small">Severe</label><br>
         </div>
         <label class="label-reg" for="deficits">There are deficits of the following goods and services: </label><br>
         <div class="optionGroup" id="deficits">
-            <input type="checkbox" name="deficits" value="banking" ng-model="vm.visit.deficits.banking">
-            <label class="label-small">Banking services</label><br>
-            <input type="checkbox" name="deficits" value="healthPharm" ng-model="vm.visit.deficits.healthPharm">
-            <label class="label-small">Healthcare & pharmaceuticals</label><br>
-            <input type="checkbox" name="deficits" value="notary" ng-model="vm.visit.deficits.notary">
-            <label class="label-small">Notary services</label><br>
+            <input type="checkbox" name="deficits" id="banking" value="banking" ng-model="vm.visit.deficits.banking">
+            <label for="banking" class="label-small">Banking services</label><br>
+            <input type="checkbox" name="deficits" id="healthpharm" value="healthPharm" ng-model="vm.visit.deficits.healthPharm">
+            <label for="healthpharm" class="label-small">Healthcare & pharmaceuticals</label><br>
+            <input type="checkbox" name="deficits"  id="notary" value="notary" ng-model="vm.visit.deficits.notary">
+            <label for="notary" class="label-small">Notary services</label><br>
         </div>
     </div>
     <div class="form-section">

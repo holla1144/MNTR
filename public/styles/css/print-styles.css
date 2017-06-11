@@ -29,7 +29,7 @@ html, body {
 .f-right {
   float: right; }
 
-.inner {
+.inner-wrap {
   width: 80%;
   margin: 0 auto; }
 
@@ -89,7 +89,7 @@ input.ng-dirty.ng-invalid {
   order: 1;
   flex: 1; }
 
-#map2 {
+#visit-details-print--map--zoom {
   order: 2;
   flex: 2;
   min-width: 10em;
@@ -116,7 +116,7 @@ input.ng-dirty.ng-invalid {
   min-width: 10em;
   padding: 2em 4em; }
 
-#print-body .inner {
+#print-body .inner-wrap {
   width: 100%; }
 
 #print-body .form-section {

@@ -1,0 +1,147 @@
+<div class="inner-wrap" id="form-print-modal-inner">
+        <div id="form-content">
+            <div class="form-section" id="print-report-head">
+                <div class="visit-details--col col-1" id="print-report-head--col-1">
+                    <div id="print-report-head-text">
+                        <h3 id="header-form-head">{{vm.printVisit.name}}</h3>
+                        <p class="header-form--sub-head">PCODE: {{vm.printVisit.location}}</p>
+                        <p class="header-form--sub-head">{{vm.printVisit.location_admin2_en}} rayon</p>
+                        <p class="header-form--sub-head">{{vm.printVisit.location_admin1_en}} oblast</p>
+                    </div>
+                    <div id="map-zoom-wrap">
+                        <div id="visit-details-print--map--zoom">
+                            <img id="map-zoom-wrap--img"src="//maps.googleapis.com/maps/api/staticmap?path=color:red|{{vm.loc}}&center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&sensor=false&zoom=5&size=350x300&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="visit-details--col col-2" id="print-report-head--col-2">
+                    <div id="map-outer-wrap">
+                        <img id="map-outer-wrap--img" src="//maps.googleapis.com/maps/api/staticmap?center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&zoom=10&size=350x450&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section flexbox-section" id="print-report-overview">
+                <div class="section-head">
+                    <h3>Overview</h3>
+                </div>
+                <div class="section-content">
+                        <div class="visit-details--col col-1">
+                            <p class="visit-details-print--question">Information collected by:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.collector_name }}</span></p>
+                            <p class="visit-details-print--question">Organization of collector:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.org || "Not reported" }}</span></p>
+                            <p class="visit-details-print--question">Role of informant:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.source_role || "Not reported" }}</span></p>
+                        </div>
+                        <div class="visit-details--col col-2">
+                            <p class="visit-details-print--question">Village status:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.village_status || "Not reported" }}</span></p>
+                            <p class="visit-details-print--question">Estimated current population:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.population_current || "Not reported" }}</span></p>
+                            <p class="visit-details--question">Estimated pre-conflict population:
+                                <span class="visit-details-print--answer">{{ vm.printVisit.population_pre || "Not reported" }}</span></p>
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="form-section flexbox-section" id="print-report-shelter">
+                <div class="section-head">
+                    <h3>Shelter</h3>
+                </div>
+                <div class="section-content">
+                    <div class="visit-details--col col-1">
+                        <p class="visit-details-print--question">Number of individual houses:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.ind_houses || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Number of multi-storey houses:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.multi_houses || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Individual houses in need of light repairs:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.ind_houses_light || "Not reported" }}</span></p>
+                    </div>
+                    <div class="visit-details--col col-2">
+                        <p class="visit-details-print--question">Individual houses in need of medium repairs:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.ind_houses_medium || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Individual houses in need of reconstruction:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.ind_houses_recon || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Multi-storey houses in need of light/med repairs:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.ind_houses_recon || "Not reported" }}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section flexbox-section" id="print-report-infrastructure">
+                <div class="section-head">
+                    <h3>Infrastructure</h3>
+                </div>
+                <div class="section-content">
+                    <div class="visit-details--col col-1">
+                        <p class="visit-details-print--question">Number of houses using gas for heating:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.gas || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Number of houses with central heating:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.central || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Number of houses which use coal or wood for heating:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.coal_wood || "Not reported" }}</span></p>
+                        <p class="visit-details-print--question">Is fuel readily available in the location?
+                            <span class="visit-details-print--answer">{{ vm.printVisit.fuel || "Not reported" }}</span></p>
+                    </div>
+                    <div class="visit-details--col col-2"   >
+                        <p class="visit-details-print--question">Does the village experience disruptions to electricity?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.elect_disrupt == null) ? "Not reported" : vm.printVisit.elect_disrupt ? "Yes" : "No"}}{{ vm.printVisit.elect_disrupt_freq ? ", " + vm.printVisit.elect_disrupt_freq : '' }}</span></p>
+                        <p class="visit-details-print--question">Does the village experience disruptions to water?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.water_disrupt == null) ? "Not reported" : vm.printVisit.water_disrupt ? "Yes" : "No"}}{{ vm.printVisit.water_disrupt_freq ? ", " + vm.printVisit.water_disrupt_freq : '' }}</span></p>
+                        <p class="visit-details-print--question">Does the village experience disruptions to gas?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.gas_disrupt == null) ? "Not reported" : vm.printVisit.gas_disrupt ? "Yes" : "No"}}{{ vm.printVisit.gas_disrupt_freq ? ", " + vm.printVisit.gas_disrupt_freq : '' }}</span></p>
+                        <p class="visit-details-print--question">Is transportation a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.transport == null) ? "Not reported" : vm.printVisit.transport ? "Yes" : "No" }}</span></p>
+                    </div>
+                </div>
+                <div class="section-commentary">
+                    <div ng-show="vm.printVisit.transport_detail != null && vm.printVisit.transport_detail != ''">
+                        <p class="visit-details-print--question">Additional information about transportation concerns:</p>
+                        <p class="visit-details-commentary-div-item">{{ vm.printVisit.transport_detail }}</p>
+                    </div>
+                    <div ng-show="vm.printVisit.infrastructure_detail != null && vm.printVisit.infrastructure_detail != ''">
+                        <p class="visit-details-print--question">Additional information about infrastructure:</p>
+                        <p class="visit-details-commentary-div-item">{{ vm.printVisit.infrastructure_detail }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section" id="print-report-protection">
+                <div class="section-head">
+                    <h3>Protection</h3>
+                </div>
+                <div class="section-content">
+                    <div class="visit-details--col col-1">
+                        <p class="visit-details-print--question">Is community tension a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.tension == null) ? "Not reported" : vm.printVisit.tension ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is land expropriation a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.expropriation == null) ? "Not reported" : vm.printVisit.expropriation ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is discrimination against IDPs/Returnees a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.discrimination == null) ? "Not reported" : vm.printVisit.discrimination ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is human trafficking a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.trafficking == null) ? "Not reported" : i.trafficking ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is corruption a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.corruption == null) ? "Not reported" : i.corruption ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is presence of armed forces a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.armed_forces == null) ? "Not reported" :vm.printVisit.armed_forces ? "Yes" : "No" }}</span></p>
+                    </div>
+                    <div class="visit-details--col col-2">
+                        <p class="visit-details-print--question">Is forced recruitment a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.forced_recruit == null) ? "Not reported" : i.forced_recruit ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is freedom of movement a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.freedom_of_movement == null) ? "Not reported" : vm.printVisit.freedom_of_movement ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">Is the presence of ERWs a concern?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.erw == null) ? "Not reported" : vm.printVisit.erw ? "Yes" : "No" }}</span></p>
+                        <p class="visit-details-print--question">How is the relationship between the host community and IDPs?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.idp_host_relationship == null) ? "Not reported" : vm.printVisit.idp_host_relationship }}</span></p>
+                        <p class="visit-details-print--question">How has the number of returnees changed in the last 30 days?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.returnees_change == null) ? "Not reported" : vm.printVisit.returnees_change }}</span></p>
+                        <p class="visit-details-print--question">How has the number of idps changed in the last 30 days?
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.idps == null) ? "Not reported" : vm.printVisit.idps }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <button class="btn" ng-click="vm.printVisitEvent()" id="print-report-print-btn">Print Report</button>
+</div>

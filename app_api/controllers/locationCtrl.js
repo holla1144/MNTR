@@ -88,6 +88,9 @@ module.exports.addVisit = function(req, res){
 
     let visit = new Visit ({
         location: req.body.location,
+        location_admin4_en: req.body.locationName,
+        location_admin2_en: req.body.locationRayon,
+        location_admin1_en: req.body.locationOblast,
         collector_name: req.body.collector,
         date: req.body.date,
         date_added: req.body.dateAdded,

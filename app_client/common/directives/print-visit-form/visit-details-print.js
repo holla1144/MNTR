@@ -5,6 +5,6 @@ angular
 function printVisitForm() {
     return {
         restrict: "EA",
-        templateUrl: '/common/directives/print-visit-form/print-visit-form.template.html'
+        templateUrl: '/common/directives/print-visit-form/visit-details-print.template.html'
     }
 };

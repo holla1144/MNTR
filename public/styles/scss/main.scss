@@ -1,16 +1,108 @@
+@import 'base';
 
+//NAVIGATION DIRECTIVE
 
+navigation {
+  order: 1;
+}
 
+navigation nav {
+  overflow: hidden;
+  width: 100%;
+  background-color: map_get($colors, gray);
+  border-width: 4px 0 4px 0;
+}
 
-@import 'landing';
-@import 'navigation';
-@import 'visit-form';
-@import 'visit-report-detail';
-@import 'print-styles';
+navigation ul {
+  list-style-type: none;
+}
 
+navigation ul li a:first-child {
+  padding-left: 0;
+}
 
+navigation ul li a {
+  font-size: 1.4em;
+  text-decoration: none;
+  display: block;
+  padding: .5em 1em;
+}
 
+//LANDING
 
+#home-wrap {
+
+  background-image: url('/img/refugee-camp-2017-2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#home-wrap .inner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#home-wrap .logo-wrap {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  padding-bottom: 2em;
+}
+
+#login-wrap {
+  order: 1;
+  border-radius: 10px;
+  background: rgba(238, 239, 240, 1);
+  padding: 2em 0em 3em 0em;
+  text-align: center;
+  width: 25%;
+  min-height: 20em;
+
+}
+
+#login-wrap form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-err-msg {
+  margin: 1em 0;
+}
+
+#login-wrap input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+#login-wrap input[type="text"], #login-wrap input[type="email"], #login-wrap input[type="password"] {
+  outline: none;
+  margin: .7em 0;
+  padding: 1em;
+  width: 90%;
+  font-size: 1em;
+}
+
+#login-wrap input[type="submit"] {
+  border: none;
+  background-color: map_get($colors, unhcr);
+  font-family: map_get($fonts, primary);
+  font-size: 1em;
+  color: white;
+  padding: .7em 2em;
+  display: block;
+  min-width: 50%;
+  margin: 2em auto 1em auto;
+  text-align: center;
+}
+
+#login-wrap #create-account-link {
+  display: block;
+  margin: 1em auto;
+  font-size: 1em;
+  color: map_get($colors, unhcr);
+}
 
 
 //VILLAGES PAGE
@@ -28,7 +120,6 @@
   margin: 3%;
   padding: .3em;
   font-size: 1.3em;
-
 }
 
 .village-select:first-child {
@@ -112,7 +203,71 @@ main {
 }
 
 
+//VISIT FORM STYLES
 
+visit-form form {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+}
+
+visit-form h3, #form-print-modal-inner h3 {
+  margin: .5em 0 1em 0;
+  font-size: 1.3em;
+}
+
+visit-form #header-form-head {
+  margin-bottom: .1em;
+}
+
+visit-form label, visit-form input, visit-form textarea {
+  margin: .25em 0;
+}
+
+visit-form textarea {
+  width: 70%;
+  min-height: 6em;
+  font-family: map_get($fonts, droid);
+}
+
+visit-form input[type="text"], visit-form input[type="number"], visit-form input[type="email"], visit-form select, visit-form textarea {
+  border-radius: 8px;
+  border: .5px solid map_get($colors, gray);
+  outline: none;
+  text-indent: .5em;
+  font-size: 1em;
+  padding: .1em 0;
+}
+
+
+visit-form input[type="radio"], visit-form input[type="checkbox"] {
+  margin: .25em .4em;
+}
+
+visit-form .optionGroup {
+  margin: .4em 0;
+};
+
+visit-form .label-small {
+  font-size: 1em;
+}
+
+visit-form .label-reg {
+  font-size: 1.25em;
+}
+
+visit-form #submit-btn-wrap {
+  width: 97%;
+  margin: 2em auto;
+}
+
+visit-form button[type="submit"] {
+  border: 2px solid black;
+  background-color: white;
+  padding: 1em;
+  font-size: 1.25em;
+}
 
 //FORM ERROR MODAL STYLES
 
@@ -124,7 +279,6 @@ main {
   border-radius: 12px;
   border: 1px solid black;
   text-align: center;
-
 }
 
 #form-error-modal-text-wrap p {
@@ -137,11 +291,281 @@ main {
   width: 10em;
 }
 
+//PREVIOUSLY RECORDED VISITS
 
+.btn {
+  height: 2.5em;
+  font-size: 1em;
+  border: 2px solid black;
+  background-color: white;
+  margin-top: .5em;
+  transition: all 1s linear;
+};
+
+.btn-active {
+  background-color: map_get($colors, unhcr);
+  color: white;
+}
+
+.btn:hover {
+  @extend .btn-active;
+}
+
+.visit-btn {
+  @extend .btn;
+  width: 97%;
+
+};
+
+.visit-btn:last-child {
+  margin-bottom: 2em;
+};
+
+.sections-tab {
+  margin-top: 1em;
+  list-style-type: none;
+  overflow: hidden;
+  width:97%;
+  transition: all 1s;
+};
+
+.sections-tab--item {
+  float:left;
+  display: block;
+  padding: .7em .3em;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transition: all .7s;
+  min-width: 5em;
+  text-align: center;
+};
+
+.sections-tab  .sections-tab--item:first-child {
+  border-left: 1px solid black;
+}
+
+.sections-tab .sections-tab--item:hover {
+  background-color: #DBE4EE;
+}
+.visit-details-div p {
+  font-size: 1em;
+}
+
+.selected-tab {
+  background-color: #DBE4EE;
+}
+
+.visit-details-div{
+  @extend .hidden;
+}
+
+.visit-details-div {
+  min-height: 10em;
+  background-color: #DBE4EE;
+  width: 97%;
+  padding: 1.5em 0;
+  border: 1px solid black;
+  border-top: 0;
+}
+
+.visit-details-div--inner {
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-details--qa-wrap {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.visit-details--question {
+  padding: .5em 0;
+  font-family: map_get($fonts, primary-bold);
+  max-width: 20em;
+}
+
+.visit-details--answer {
+  margin: .7em 0;
+  display: block;
+  font-family: map-get($fonts, primary);
+}
+
+.visit-details--commentary-wrap {
+  order: 2;
+}
+
+.visit-details--commentary-btn {
+  @extend .visit-details--question;
+  border: 2px solid black;
+  padding: 1em;
+  font-size: .8em;
+}
+
+.visit-content-wrap {
+  @extend .hidden;
+  transition: all 1s;
+}
+
+//PRINT REPORT
+
+#form-print-modal {
+  overflow: auto;
+};
+
+print-visit-form .inner-wrap {
+  width: 50%;
+}
+
+
+#form-print-modal-inner {
+  margin-top: 1em;
+  background-color: white;
+  padding: 1.6em 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#form-print-modal-inner p {
+  padding: .1em 0;
+}
+
+#form-content h3 {
+  text-decoration: underline;
+  margin-bottom: 2em;
+}
+
+.visit-details-print--question {
+  @extend .visit-details--question;
+  max-width: 30em;
+}
+
+.visit-details-print--answer {
+  @extend .visit-details--answer;
+}
+
+.section-commentary .visit-details-print--question {
+  max-width: none;
+}
+
+.form-section.flexbox-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-head {
+  order: 1;
+}
+
+.section-content {
+  @extend .visit-details--qa-wrap;
+  order: 2;
+}
+
+.section-commentary {
+  margin-top: 3em;
+  order: 3;
+}
+
+#print-report-head {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-form--sub-head {
+  padding-top: 1em;
+}
+
+#print-report-head--col-1, print-report-head--col-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+#print-report-head-text {
+  order: 1;
+  flex: 1;
+}
+#print-report-head-text h3:first-child {
+  margin-bottom: .2em;
+}
+
+#map-zoom-wrap {
+  position: relative;
+  order: 2;
+  flex: 2;
+}
+
+#visit-details-print--map--zoom {
+  min-width: 10em;
+  min-height: 12em;
+  margin: 2em auto 0 auto;
+}
+
+#map-outer-wrap {
+  order: 2;
+  min-width: 15em;
+  min-height: 10em;
+}
+
+#visit-details-print--map--outer {
+  order: 1;
+  flex: 1;
+  min-width: 15em;
+  min-height: 10em;
+  margin: 0 auto;
+}
+
+#print-report-overview {
+  order: 2;
+}
+
+#print-report-shelter {
+  order: 3;
+}
+
+#print-report-infrastructure {
+  order: 4;
+}
+
+#print-report-protection {
+  order: 5;
+}
+
+#print-report-print-btn {
+  height: auto;
+  text-align: center;
+  margin: 2em auto;
+  order: 6;
+  min-width: 10em;
+  padding: 2em 4em;
+}
+
+#print-body #map-zoom-wrap--img {
+  margin-top: 1em;
+  width: 300px;
+}
+
+#print-body .inner-wrap{
+  width: 100%;
+}
+
+#print-body .form-section {
+  width: 100%;
+}
+
+#print-body p {
+  font-size: 13px;
+}
+
+#print-body  h3 {
+  font-size: 16px;
+}
 
 //FOOTER
-
-
 footer {
   order: 3;
   width: 100%;

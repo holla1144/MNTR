@@ -63,66 +63,76 @@ input.ng-dirty.ng-valid {
 input.ng-dirty.ng-invalid {
   box-shadow: inset 0 0 3px red; }
 
-.form-section {
-  width: 97%;
-  margin: 1em auto 0 auto;
-  border: 2px solid black;
-  padding: 2em; }
-
 .visit-details--col {
   flex: 1; }
 
-.visit-details--col.col-1 {
+.visit-details--col .col-1 {
   order: 1; }
 
-.visit-details--col.col-2 {
+.visit-details--col .col-2 {
   order: 2; }
 
-visit-form form {
+#form-print-modal {
+  overflow: auto; }
+
+#print-report-head-text h3:first-child {
+  margin-bottom: 0; }
+
+#form-print-modal-inner {
   margin-top: 1em;
   background-color: white;
   padding: 1.6em 0;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column; }
 
-visit-form h3, #form-print-modal-inner h3 {
-  margin: .5em 0 1em 0; }
-
-visit-form #header-form-head {
-  margin-bottom: .1em; }
-
-visit-form label, visit-form input, visit-form textarea {
-  margin: .25em 0; }
-
-visit-form textarea {
-  width: 70%;
-  min-height: 6em; }
-
-visit-form input[type="text"], visit-form input[type="number"], visit-form input[type="email"], visit-form select, visit-form textarea {
-  border-radius: 8px;
-  border: 0.5px solid #99a1a6;
-  outline: none;
-  text-indent: .5em;
-  font-size: 1em;
+#form-print-modal-inner p {
   padding: .1em 0; }
 
-visit-form input[type="radio"], visit-form input[type="checkbox"] {
-  margin: .25em .4em; }
+#print-report-head {
+  order: 1;
+  display: flex;
+  flex-direction: row; }
 
-visit-form .optionGroup {
-  margin: .4em 0; }
+#print-report-head-text {
+  order: 1;
+  flex: 1; }
 
-visit-form .label-small {
-  font-size: 1em; }
+#visit-details-print--map--zoom {
+  order: 2;
+  flex: 2;
+  min-width: 10em;
+  min-height: 10em;
+  margin: 0 auto; }
 
-visit-form .label-reg {
-  font-size: 1.25em; }
+#print-report-overview {
+  order: 2; }
 
-visit-form #submit-btn-wrap {
-  width: 97%;
-  margin: 2em auto; }
+#print-report-shelter {
+  order: 3; }
 
-visit-form button[type="submit"] {
-  border: 2px solid black;
-  background-color: white;
-  padding: 1em;
-  font-size: 1.25em; }
+#print-report-infrastructure {
+  order: 4; }
+
+#print-report-protection {
+  order: 5; }
+
+#print-report-print-btn {
+  height: auto;
+  text-align: center;
+  margin: 2em auto;
+  order: 6;
+  min-width: 10em;
+  padding: 2em 4em; }
+
+#print-body .inner-wrap {
+  width: 100%; }
+
+#print-body .form-section {
+  width: 100%; }
+
+#print-body p {
+  font-size: 13px; }
+
+#print-body h3 {
+  font-size: 16px; }
