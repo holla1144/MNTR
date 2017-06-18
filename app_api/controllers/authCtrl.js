@@ -41,11 +41,11 @@ module.exports.register = function(req, res) {
                             secure: true, // use SSL
                             auth: {
                                 user: 'GETMNTR@gmail.com',
-                                pass: process.env.gmailpass
+                                pass: process.env.pass
                             }
                         });
 
-                        console.log(process.env.gmailpass);
+                        console.log(process.env.pass);
                         console.log(process.env.secret);
                         // set up e-mail data
 
