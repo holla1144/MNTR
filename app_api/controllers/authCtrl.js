@@ -65,7 +65,7 @@ module.exports.register = function(req, res) {
                             to: req.body.email,
                             subject: 'Welcome to MNTR', // Subject line
                             text: 'Welcome to MNTR ', // plaintext body
-                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://localhost:4200/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
+                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://getmntr.com/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
                         };
 
                         let user = new User();
