@@ -2,7 +2,7 @@
  * Created by Master on 4/2/2017.
  */
 
-require('dotenv').load();
+require('dotenv').config();
 var express = require('express'),
     path = require('path'),
     app = express(),
