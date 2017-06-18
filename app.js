@@ -14,6 +14,9 @@ var express = require('express'),
 require('./app_api/config/passport');
 require('./app_api/models/db');
 
+console.log(process.env.mailpassword);
+console.log(process.env.secret);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_client')));
 

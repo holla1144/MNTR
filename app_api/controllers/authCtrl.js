@@ -46,7 +46,7 @@ module.exports.register = function(req, res) {
                         });
 
                         console.log(process.env.mailpassword);
-
+                        console.log(process.env.secret);
                         // set up e-mail data
 
                         let today = new Date();
