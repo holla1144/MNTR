@@ -44,11 +44,10 @@ module.exports.register = function(req, res) {
                             port: 465,
                             secure: true, // use SSL
                             auth: {
-                                user: 'GETMNTR@gmail.com',
+                                user: 'getmntr@gmail.com',
                                 pass: process.env.emailPassword
                             }
                         });
-
 
                         // set up e-mail data
 
