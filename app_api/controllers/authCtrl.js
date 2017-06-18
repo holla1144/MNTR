@@ -45,7 +45,7 @@ module.exports.register = function(req, res) {
                             secure: true, // use SSL
                             auth: {
                                 user: 'getmntr@gmail.com',
-                                pass: process.env.emailPassword
+                                pass: 'thisismntr'
                             }
                         });
 
