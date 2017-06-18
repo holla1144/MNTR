@@ -5,7 +5,8 @@
 
 angular.module("vaApp", ['ngRoute', 'ngAnimate', 'ngTouch', 'ui.bootstrap']);
 
-function config($routeProvider) {
+function config($routeProvider, $locationProvider) {
+
     $routeProvider
         .when("/", {
             templateUrl:"views/home.html",
@@ -24,6 +25,13 @@ function config($routeProvider) {
             controller:"villageCtrl",
             controllerAs:"vm"
         })
+
+        .when("/verify", {
+            templateUrl: "views/verify.html",
+            controller: "verifyCtrl",
+            controllerAs: "vm"
+    });
+
 }
 
 angular

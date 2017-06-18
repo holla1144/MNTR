@@ -4,7 +4,8 @@ angular
 
 
 function villageCtrl($location, locationData, authentication) {
-
+    var token = authentication.decodeToken();
+    console.log(token);
     let vm = this;
 
     if (!authentication.isLoggedIn()) {
@@ -48,7 +49,7 @@ function villageCtrl($location, locationData, authentication) {
              */
 
             let selectedTab = $(event.target);
-            let tabs = $('.sections-tab-item');
+            let tabs = $('.sections-tab--item');
             let detailDivs = $('.visit-details-div');
             let selectedDiv = selectedTab.attr('data-tab');
             let childDivIdentifier = selectedTab.attr('data-id');

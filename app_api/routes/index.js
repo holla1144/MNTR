@@ -26,6 +26,9 @@ router.get('/getVisits/:visitIds', auth, locationCtrl.getVisits);
 //authentication
 
 router.post('/register', authCtrl.register);
+
 router.post('/login', authCtrl.login);
+
+router.get('/verify/:dataObj', authCtrl.verify);
 
 module.exports = router;

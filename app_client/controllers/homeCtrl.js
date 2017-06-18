@@ -19,7 +19,7 @@ function homeCtrl (authentication, $location) {
                 vm.loginError = "All fields required";
             } else {
                 credentials.email = vm.loginEmail;
-                credentials.password = vm.loginPassword;
+                credentials.password = vm.loginPassword.toLowerCase();
 
                 authentication.login(credentials).then(function(response) {
                     $location.path('/villages')
@@ -33,18 +33,21 @@ function homeCtrl (authentication, $location) {
 
         vm.register = function() {
 
+            vm.registrationError = "";
+
             let newUser = {};
 
             if (!vm.registerName || !vm.registerEmail || !vm.registerPassword) {
                 vm.registrationError = "All fields are required to create an account."
             } else {
                 newUser.name = vm.registerName;
-                newUser.email = vm.registerEmail;
+                newUser.email = vm.registerEmail.toLowerCase();
                 newUser.password = vm.registerPassword;
 
                 authentication.register(newUser).then(function(data) {
                     console.log(data);
-                    $location.path('/villages')
+                    vm.registrationError = data.data.message;
+                    //$location.path('/villages')
                 }, function(err) {
                     console.log(err);
                     vm.registrationError = err.data.message;

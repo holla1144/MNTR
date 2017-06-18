@@ -443,31 +443,21 @@ print-visit-form .inner-wrap {
 
 #print-report-head-text {
   order: 1;
-  flex: 1; }
+  flex: 1;
+  margin-bottom: 1em; }
 
 #print-report-head-text h3:first-child {
   margin-bottom: .2em; }
 
-#map-zoom-wrap {
-  position: relative;
-  order: 2;
-  flex: 2; }
+.visit-details--map {
+  max-width: 98%; }
 
 #visit-details-print--map--zoom {
-  min-width: 10em;
-  min-height: 12em;
-  margin: 2em auto 0 auto; }
-
-#map-outer-wrap {
-  order: 2;
-  min-width: 15em;
-  min-height: 10em; }
+  order: 2; }
 
 #visit-details-print--map--outer {
   order: 1;
-  flex: 1;
-  min-width: 15em;
-  min-height: 10em;
+  flex: 2;
   margin: 0 auto; }
 
 #print-report-overview {

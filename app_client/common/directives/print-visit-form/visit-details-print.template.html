@@ -8,16 +8,16 @@
                         <p class="header-form--sub-head">{{vm.printVisit.location_admin2_en}} rayon</p>
                         <p class="header-form--sub-head">{{vm.printVisit.location_admin1_en}} oblast</p>
                     </div>
-                    <div id="map-zoom-wrap">
-                        <div id="visit-details-print--map--zoom">
-                            <img id="map-zoom-wrap--img"src="//maps.googleapis.com/maps/api/staticmap?path=color:red|{{vm.loc}}&center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&sensor=false&zoom=5&size=350x300&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
-                        </div>
 
+                    <div id="visit-details-print--map--zoom">
+                        <img class="visit-details--map" id="map-outer-wrap--img" src="//maps.googleapis.com/maps/api/staticmap?path=color:red|{{vm.loc}}&center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&sensor=false&zoom=5&size=350x300&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
                     </div>
+
+
                 </div>
                 <div class="visit-details--col col-2" id="print-report-head--col-2">
-                    <div id="map-outer-wrap">
-                        <img id="map-outer-wrap--img" src="//maps.googleapis.com/maps/api/staticmap?center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&zoom=10&size=350x450&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
+                    <div id="visit-details-print--map--outer">
+                        <img class="visit-details--map" id="map-zoom-wrap--img"  src="//maps.googleapis.com/maps/api/staticmap?center={{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&markers=color:red%7C{{vm.selectedCoords.lat}}, {{vm.selectedCoords.lng}}&zoom=10&size=350x450&maptype=roadmap&key=AIzaSyDBurH2NvluwbXeiEx7Z0hsdDzlRys7tPs">
                     </div>
                 </div>
             </div>

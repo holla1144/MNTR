@@ -19,7 +19,7 @@ module.exports.getRayons = function(req, res) {
     query.exec(function(err, rayons) {
         if (err) {
             console.log(err);
-            sendJSONresponse(res. status, {
+            sendJSONresponse(res, 400, {
                 "message": "Something went wrong"
             })
         } else if (!rayons){

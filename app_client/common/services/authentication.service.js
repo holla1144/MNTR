@@ -3,9 +3,9 @@
         .module('vaApp')
         .service('authentication', authentication);
 
-    authentication.$inject = ['$window', '$http'];
+    authentication.$inject = ['$window', '$http', '$location'];
 
-    function authentication ($window, $http) {
+    function authentication ($window, $http, $location) {
        var saveToken = function(token) {
            $window.localStorage['vaApp-token'] = token;
        };
@@ -16,9 +16,13 @@
 
        var register = function(user) {
 
-           return $http.post('/api/register', user).then(function(data) {
+           return $http.post('/api/register', user);
+       };
+
+       var verify = function(dataObj) {
+           return $http.get('api/verify/' + dataObj).then(function(data) {
                saveToken(data.data.token);
-           });
+        })
        };
 
        var login = function(user) {
@@ -45,13 +49,20 @@
            }
        };
 
+       var decodeToken = function() {
+           var token = getToken();
+           return $window.atob(token.split('.')[1]);
+       }
+
        return {
            "saveToken" : saveToken,
            "getToken" : getToken,
            "register": register,
            "login": login,
            "logout": logout,
-           "isLoggedIn": isLoggedIn
+           "isLoggedIn": isLoggedIn,
+           "decodeToken": decodeToken,
+           "verify": verify
        }
     }
 })();
