@@ -1,6 +1,8 @@
 /**
  * Created by Master on 4/2/2017.
  */
+
+require('dotenv').load();
 var express = require('express'),
     path = require('path'),
     app = express(),

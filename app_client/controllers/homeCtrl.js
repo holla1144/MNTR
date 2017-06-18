@@ -18,8 +18,8 @@ function homeCtrl (authentication, $location) {
             if (!vm.loginEmail || !vm.loginPassword) {
                 vm.loginError = "All fields required";
             } else {
-                credentials.email = vm.loginEmail;
-                credentials.password = vm.loginPassword.toLowerCase();
+                credentials.email = vm.loginEmail.toLowerCase();
+                credentials.password = vm.loginPassword;
 
                 authentication.login(credentials).then(function(response) {
                     $location.path('/villages')

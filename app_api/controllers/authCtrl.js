@@ -26,8 +26,7 @@ module.exports.register = function(req, res) {
                             "message": err
                         })
 
-                    } else if (data.count() > 0) {
-                        console.log(data);
+                    } else if (data && data.status == "verified") {
                         sendJsonResponse(res, 401, {
                             "message": "This email has already been registered. " +
                             "Please log in or use a different email."
@@ -41,8 +40,8 @@ module.exports.register = function(req, res) {
                             port: 465,
                             secure: true, // use SSL
                             auth: {
-                                user: 'holla1144@gmail.com',
-                                pass: 'declanmcmanus'
+                                user: 'GETMNTR@gmail.com',
+                                pass: process.env.mailpassword
                             }
                         });
 
@@ -62,11 +61,11 @@ module.exports.register = function(req, res) {
 
 
                         let mailOptions = {
-                            from: '"MNTR" <holla1144@gmail.com>',
+                            from: '"MNTR" <GETMNTR@gmail.com>',
                             to: req.body.email,
                             subject: 'Welcome to MNTR', // Subject line
                             text: 'Welcome to MNTR ', // plaintext body
-                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://getmntr.com/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
+                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://localhost:4200/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
                         };
 
                         let user = new User();
@@ -159,6 +158,11 @@ module.exports.verify = function(req, res) {
                     sendJsonResponse(res, 400, {
                         "message":"something went wrong " + err,
                     })
+
+                } else if (docs.status == 'verified') {
+                    sendJsonResponse(res, 401, {
+                        "message": "Looks like this account has already been verified. Try logging in."
+                    });
 
                 } else {
 
