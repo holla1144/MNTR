@@ -17,7 +17,7 @@ module.exports.register = function(req, res) {
             });
             return } else {
 
-                let query = User.findOne({email: req.body.email}).count();
+                let query = User.findOne({email: req.body.email});
 
                 query.exec(function(err, data) {
 
@@ -26,7 +26,8 @@ module.exports.register = function(req, res) {
                             "message": err
                         })
 
-                    } else if (data > 0) {
+                    } else if (data.count() > 0) {
+                        console.log(data);
                         sendJsonResponse(res, 401, {
                             "message": "This email has already been registered. " +
                             "Please log in or use a different email."
