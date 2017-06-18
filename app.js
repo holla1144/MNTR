@@ -16,7 +16,6 @@ require('./app_api/models/db');
 
 console.log(process.env.emailPassword);
 console.log(process.env.secret)
-console.log(process.env.third_variable);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_client')));

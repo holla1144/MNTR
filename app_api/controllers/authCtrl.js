@@ -10,6 +10,10 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 module.exports.register = function(req, res) {
+
+        console.log(process.env.emailPassword);
+        console.log(process.env.secret);
+
         let email = req.body.email;
         if (!req.body.name || !req.body.email || !req.body.password) {
             sendJsonResponse(res, 400, {
@@ -45,8 +49,7 @@ module.exports.register = function(req, res) {
                             }
                         });
 
-                        console.log(process.env.emailPassword);
-                        console.log(process.env.secret);
+
                         // set up e-mail data
 
                         let today = new Date();
