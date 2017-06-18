@@ -3,7 +3,7 @@ var express = require('express'),
     locationCtrl = require('../controllers/locationCtrl'),
     jwt = require('express-jwt'),
     auth = jwt({
-        secret: "thisissecret",
+        secret: process.env.secret,
         userProperty: 'payload'
     });
     authCtrl = require('../controllers/authCtrl');
