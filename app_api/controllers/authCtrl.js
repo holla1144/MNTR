@@ -60,13 +60,14 @@ module.exports.register = function(req, res) {
 
                         let stringObj = encodeURIComponent(JSON.stringify(userObj));
 
+                        let redirect = process.env.redirect || 'localhost:4200';
 
                         let mailOptions = {
                             from: '"MNTR" <GETMNTR@gmail.com>',
                             to: req.body.email,
                             subject: 'Welcome to MNTR', // Subject line
                             text: 'Welcome to MNTR ', // plaintext body
-                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://www.getmntr.com/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
+                            html: '<b>Welcome to MNTR</b><br><p>Click on "verify" to activate your account</p><br><a href="http://' + redirect + '/#!/verify/?dataObj=' + stringObj + '"  >Verify</a>' // html body
                         };
 
                         let user = new User();

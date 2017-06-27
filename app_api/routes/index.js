@@ -11,6 +11,8 @@ var express = require('express'),
 
 //locations
 
+
+
 router.get('/getRayons/:oblastId', locationCtrl.getRayons);
 
 router.get('/getVillages/:rayonId', locationCtrl.getVillages);
@@ -19,6 +21,7 @@ router.get('/getOne/:villageId', locationCtrl.getOne);
 
 //visits
 
+router.get('/getRecent', locationCtrl.getRecentVisits);
 router.post('/addVisit', auth, locationCtrl.addVisit);
 
 router.get('/getVisits/:visitIds', auth, locationCtrl.getVisits);

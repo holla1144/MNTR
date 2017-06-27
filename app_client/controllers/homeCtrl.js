@@ -13,7 +13,10 @@ function homeCtrl (authentication, $location) {
         vm.loginError = "";
 
         vm.login = function () {
+
             let credentials = {};
+
+            vm.loginError = "";
 
             if (!vm.loginEmail || !vm.loginPassword) {
                 vm.loginError = "All fields required";

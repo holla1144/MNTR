@@ -3,9 +3,8 @@ angular
         .controller('villageCtrl', villageCtrl)
 
 
-function villageCtrl($location, locationData, authentication) {
-    var token = authentication.decodeToken();
-    console.log(token);
+function villageCtrl($location, locationData, authentication, $window, $scope) {
+    var token = authentication.decodeToken();;
     let vm = this;
 
     if (!authentication.isLoggedIn()) {
@@ -37,41 +36,37 @@ function villageCtrl($location, locationData, authentication) {
         vm.selectedCoords = {lat: 49.205562, lng: 31.407845}; //initial value for map coordinates
         vm.selectedTitle = "Ukraine"; //initial value for map label
         vm.zoom = 5; //initial value for map zoom
+        vm.visitHeader = "Recently recorded visits:";
+        vm.selectedOblast = "";
+        vm.selectedOblastName = "";
+        vm.recentVisits = "";
+        vm.rayons = "";
 
-        vm.selectTab = function(event) {
+        vm.selectedRayonName = "";
+        vm.villages = "";
+        vm.selectedVillage = "";
+        vm.villageDetails = "";
+        vm.visitArray = [];
 
-            /*Triggered when an element with class section-tab-item is clicked.
-              The 'visible' class is applied to the div matching the data-tab and data-id attributes
-              of the selected tab, and removed from all other divs with a matching data-id. The selected-tab
-              class is added to the sections-tab-item element with a matching data-tab and data-id attributes of the
-              selected element, and removed from any other elements with the same data-id which may already have
-              that class.
-             */
+        vm.setRecentVisits = function() {
 
-            let selectedTab = $(event.target);
-            let tabs = $('.sections-tab--item');
-            let detailDivs = $('.visit-details-div');
-            let selectedDiv = selectedTab.attr('data-tab');
-            let childDivIdentifier = selectedTab.attr('data-id');
-
-           $.each(detailDivs, function(i) {
-
-               if ($(detailDivs[i]).attr('data-id') === childDivIdentifier && $(detailDivs[i]).attr('data-block') !== selectedDiv) {
-                   $(this).removeClass('visible');
-               } else if (($(detailDivs[i]).attr('data-id') ===childDivIdentifier && $(detailDivs[i]).attr('data-block') === selectedDiv)) {
-                   $(this).addClass('visible');
-               };
-           });
-
-
-            $.each(tabs, function(i) {
-
-                if ($(tabs[i]).attr('data-id') === childDivIdentifier && $(tabs[i]).attr('data-tab') !== selectedDiv) {
-                    $(this).removeClass('selected-tab');
-                } else if ($(tabs[i]).attr('data-tab') == selectedDiv){
-                    $(this).addClass('selected-tab');
-                }
+            locationData.getRecentVisits().then(function(response) {
+                vm.recentVisits = response.data.data;
+            }, function(err) {
+                console.log("There was an error " + err);
             });
+        };
+
+        vm.recentVisitHandler = function(e) {
+
+            let data = JSON.parse($(e.target).attr('data-loc'));
+
+            vm.selectedOblast = data.location_admin1_code;
+            vm.getRayons();
+            vm.selectedRayon = data.location_admin2_code;
+            vm.getVillages();
+            vm.selectedVillage = data.location;
+            vm.selectVillage();
 
         };
 
@@ -82,21 +77,27 @@ function villageCtrl($location, locationData, authentication) {
             rayon is selected. Resets selected village every time a new oblast is selected. Clears details of selected villages every time
             a new oblast is selected. Clears array of village objects every time a new oblast is selected. Resets header for visits section.*/
 
+            vm.visitHeader = "Recently recorded visits:";
             vm.rayons = "";
             vm.selectedRayon = "";
             vm.villages = "";
             vm.selectedVillage = "";
             vm.villageDetails = "";
             vm.visitArray = [];
-            vm.visitHeader = "";
+
+            for (let i of vm.oblasts) {
+                if (i['pcode'] == vm.selectedOblast) {
+                    vm.selectedOblastName = i['name'];
+                    vm.visitHeader = "Recently recorded visits in " + vm.selectedOblastName + " oblast";
+                };
+            };
 
             locationData.getRayons(vm.selectedOblast).then(function (data) {
                 vm.rayons = data.data;
-            }, function(err, status) {
+            }, function(err) {
                 console.log("there was an error " + err);
             });
-        }
-
+        };
 
         vm.getVillages = function() {
 
@@ -104,10 +105,20 @@ function villageCtrl($location, locationData, authentication) {
                Resets village details every time a new rayon is selected. Resets visit array every time a new rayon is selected.
                Resets header for the 'visits' section */
 
+            for (let i of vm.rayons) {
+                if (i.Admin2 == vm.selectedRayon) {
+                    vm.selectedRayonName = i.Name;
+                } else {
+                    vm.selectedRyonName = 'this';
+                };
+            };
+
+            vm.visitHeader = "Recently recorded visits in " + vm.selectedOblastName + " oblast.";
             vm.selectedVillage = "";
             vm.villageDetails = "";
             vm.visitArray = [];
-            vm.visitHeader = "";
+
+            vm.visitHeader = "Recently recorded visits in " + vm.selectedRayonName + " rayon";
 
             locationData.getVillages(vm.selectedRayon).then(function(data){
                 vm.villages = data.data;
@@ -122,10 +133,12 @@ function villageCtrl($location, locationData, authentication) {
                coordinates from the selected village. */
 
             vm.villageDetails = "";
+            vm.visitArray = vm.visitArray = [];
+            vm.visitHeader = "Recently recorded visits in " + vm.selectedRayonName + " rayon";
+
 
             locationData.getOne(vm.selectedVillage).then(function(data) {
 
-                vm.visitArray = [];
                 vm.villageDetails = data.data;
 
                 vm.setVisitsArray();
@@ -139,10 +152,13 @@ function villageCtrl($location, locationData, authentication) {
 
         vm.setVisitsArray = function() {
 
-            /* Sets the text of the visit header. If the village 'visit' array has stored elements, this retrieves the documents for each visit from db  */
+            /* Sets the text of the visit header. If the village 'visit' array has stored elements,
+            this retrieves the documents for each visit from db  */
 
             if (vm.villageDetails.visits.length === 0) {
+
                 vm.visitHeader = "Be the first to add a visit";
+
             } else {
 
                 vm.visitHeader = "Visits:";
@@ -172,7 +188,6 @@ function villageCtrl($location, locationData, authentication) {
             window.initMap(vm.selectedCoords, vm.selectedTitle, vm.zoom, mapId);
         };
 
-
         vm.triggerFormSubmitError = function(message) {
 
             /* Opens a modal window with an error message if the visit submit form contains an error. */
@@ -195,7 +210,11 @@ function villageCtrl($location, locationData, authentication) {
 
             vm.visit.locationRayon = vm.villageDetails.NameRada;
 
+            vm.visit.codeRayon = vm.villageDetails.Admin2;
+
             vm.visit.locationOblast = vm.villageDetails.NameObl;
+
+            vm.visit.codeOblast = vm.villageDetails.Admin1;
 
             vm.visit.collector = null;
 
@@ -359,13 +378,13 @@ function villageCtrl($location, locationData, authentication) {
             it resets the form or alerts the user with an error*/
 
             let modal = $(id);
+            modal.addClass('visible');
+            modal.scrollTop(0);
 
             if (modal.attr('id') == 'villages-modal') {
                 vm.resetVisitForm();
-                modal.scrollTop(0);
-                modal.addClass('visible');
             } else {
-                modal.addClass('visible');
+               return;
             }
 
         };
@@ -373,12 +392,12 @@ function villageCtrl($location, locationData, authentication) {
         vm.modalClose = function(event) {
 
             //closes modals
-
             let modal = $(event.target).closest('.modal');
             $(modal).removeClass('visible');
         };
 
         vm.openPrintModal = function(i) {
+
             /* Sets printVisit object based on User's choice. Opens a modal window
                presenting information from a given visit. Instantiates a new Google map
                object in the print modal. */
@@ -388,8 +407,32 @@ function villageCtrl($location, locationData, authentication) {
 
             vm.modalOpen('#form-print-modal');
 
+        };
 
+        vm.printBlankForm = function() {
+            let bodyContent = $('visit-form').html();
 
+            w = window.open();
+
+            w.document.write('<link rel="stylesheet" type="text/css" ' +
+                'href="/styles/css/main.css"><html id="print-html">' +
+                '<body id="print-body">' + bodyContent +
+                '<script type="text/javascript">setTimeout(function() {window.print()}, 1000)</script ></body></html>');
+        }
+
+        vm.printVisitEvent = function() {
+
+            /* Opens a new window. Copies the html from the long-form visit report to the new window.
+             prints the contents of the page after 1 second.  */
+
+            let bodyContent = $('#form-content').html();
+
+            w = window.open();
+
+            w.document.write('<link rel="stylesheet" type="text/css" ' +
+                'href="/styles/css/main.css"><html id="print-html">' +
+                '<body id="print-body">' + bodyContent +
+                '<script type="text/javascript">setTimeout(function() {window.print()}, 1000)</script ></body></html>');
         };
 
         window.initMap = function(coords, title, zoom, elementId) {
@@ -414,25 +457,11 @@ function villageCtrl($location, locationData, authentication) {
             });
         };
 
-        vm.printVisitEvent = function() {
-
-            /* Opens a new window. Copies the html from the long-form visit report to the new window.
-               prints the contents of the page after 1 second.  */
-
-                let bodyContent = $('#form-content').html();
-
-                w = window.open();
-
-                w.document.write('<link rel="stylesheet" type="text/css" ' +
-                    'href="/styles/css/main.css"><html id="print-html">' +
-                    '<body id="print-body">' + bodyContent +
-                    '<script type="text/javascript">setTimeout(function() {window.print()}, 1000)</script ></body></html>');
-            };
-
         vm.init = function() {
             let outer = document.querySelector('body');
             let APIkey = "AIzaSyB-BMdJfbacQPY_m3yy3-o7VALgeI9vbEY";
             let script = document.createElement('script');
+
             script.onload = function() {
                 window.initMap(vm.selectedCoords, vm.selectedTitle, vm.zoom, 'map-wrap--map');
             };
@@ -440,8 +469,10 @@ function villageCtrl($location, locationData, authentication) {
             script.async = true;
             script.defer = true;
             outer.appendChild(script);
+            vm.setRecentVisits();
         };
 
         vm.init();
+
     };
 };

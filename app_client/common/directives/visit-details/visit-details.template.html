@@ -2,13 +2,13 @@
 <div class="visit-content-wrap" ng-class="{visible:showme}">
 
     <ul class="horizontal-list sections-tab">
-        <li class="sections-tab--item selected-tab"  ng-click="vm.selectTab($event)"  data-id="{{ i._id }}" data-tab="{{i._id + '-overview' }}">Overview</li>
-        <li class="sections-tab--item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-shelter' }}">Shelter</li>
-        <li class="sections-tab--item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-infrastructure' }}">Infrastructure</li>
-        <li class="sections-tab--item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-protection' }}">Protection</li>
-        <li class="sections-tab--item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-assistance' }}">Assistance</li>
-        <li class="sections-tab--item"  ng-click="vm.selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-commentary' }}">Commentary</li>
-        <li class="sections-tab--item"  ng-click="vm.openPrintModal(i)" data-id="{{ i._id }}" data-tab="{{i._id + '-print' }}" class="print-modal-btn">Print</li>
+        <li class="sections-tab--item selected-tab"  ng-click="selectTab($event)"  data-id="{{ i._id }}" data-tab="{{i._id + '-overview' }}">Overview</li>
+        <li class="sections-tab--item"  ng-click="selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-shelter' }}">Shelter</li>
+        <li class="sections-tab--item"  ng-click="selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-infrastructure' }}">Infrastructure</li>
+        <li class="sections-tab--item"  ng-click="selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-protection' }}">Protection</li>
+        <li class="sections-tab--item"  ng-click="selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-assistance' }}">Assistance</li>
+        <li class="sections-tab--item"  ng-click="selectTab($event)" data-id="{{ i._id }}" data-tab="{{i._id + '-commentary' }}">Commentary</li>
+        <li class="sections-tab--item"  ng-click="vm.openPrintModal(i)" data-id="{{ i._id }}" data-tab="{{i._id + '-print' }}" class="print-modal-btn">Full Report</li>
     </ul>
 
     <!-- OVERVIEW SECTION -->
@@ -142,14 +142,15 @@
             <div class="visit-details--qa-wrap">
                 <div class="visit-details--col col-1">
                     <p class="visit-details--question">
-                        <span class="visit-details--answer">{{ !i.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</span></p>
-                    <ul>
-                        <li ng-repeat="(key, val) in i.assistance_type">{{ val ? key : "" }}</li>
+                        <span class="visit-details--question">{{ !i.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</span></p>
+                    <ul class="visit-details--assistance-types-list">
+                        <li class="visit-details--assistance-types-item" ng-repeat="(key, val) in i.assistance_type">{{ val ? key : "" }}</li>
                     </ul>
+                    <p class="visit-details--question">Organizations which have provided assistance:
+                        <span class="visit-details--answer">{{ i.assistance_orgs ? i.assistance_orgs : "No information reported" }}</span></p>
                 </div>
                 <div class="visit-details--col col-2">
-                    <p class="visit-details--question">Organizations which have provided assistance:
-                        <span class="visit-details--answer">{{ ( i.assistance_orgs !== null) ? i.assistance_orgs : "No information reported" }}</span></p>
+
                     <p class="visit-details--question">Perceived level of need for NFIs:
                         <span class="visit-details--answer">{{ (i.nfi_need !== null) ? i.nfi_need : "No information reported" }}</span></p>
                     <p class="visit-details--question">There are deficits of the following goods and services:
@@ -164,7 +165,7 @@
     <!--COMMENTARY SECTION-->
     <div class="visit-details-div"  data-id="{{ i._id }}" data-block="{{i._id + '-commentary' }}">
         <div class="visit-details-div--inner">
-            <p> {{ i.commentary || "No comments recorded" }}</p>
+            <p class="visit-details--answer"> {{ i.commentary || "No comments recorded" }}</p>
         </div>
     </div>
 

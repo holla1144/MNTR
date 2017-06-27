@@ -1,65 +1,112 @@
-<navigation></navigation>
+    <div ng-hide="welcomePanelOpen" class="welcome-panel">
+        <span ng-click="welcomePanelOpen = true" ng-mouseenter="closeActive = true" ng-mouseleave="closeActive = false" id="welcome-panel--close">
+            <div ng-class="{change:!closeActive}" class="bar-1"></div>
+            <div ng-class="{change:!closeActive}" class="bar-2 "></div>
+            <div ng-class="{change:!closeActive}" class="bar-3 "></div>
+        </span>
 
-    <div class="outer-wrap" id="villages-outer">
-
-        <div class="inner-wrap" id="villages-inner">
-
-            <div id="village-select-wrap">
-                <select class="village-select" ng-model="vm.selectedOblast" ng-change="vm.getRayons()" ng-options="i.pcode as i.name for i in vm.oblasts" id="oblast">
-                    <option value="">--Oblast--</option>
-                </select>
-                <select class="village-select"ng-model="vm.selectedRayon" ng-change="vm.getVillages()" ng-options="i.Admin2 as i.Name for i in vm.rayons track by i.Admin2" id="rayon">
-                    <option value="">--Rayon--</option>
-                </select>
-                <select class="village-select" ng-model="vm.selectedVillage" ng-change="vm.selectVillage()" ng-options="i.Admin4 as i.Name for i in vm.villages track by i.Admin4">
-                    <option value="">--Village--</option>
-                </select>
-            </div>
-            <main>
-
-                <div id="visit-btn-wrap">
-                        <h3>{{vm.visitHeader}}</h3>
-                        <div ng-repeat="i in vm.visitArray | orderBy:'-date'" id="visits-container">
-                            <visit-details></visit-details>
-                        </div>
-                    <div ng-show="vm.villageDetails !== ''" id="village-form-btn-wrap "><button class="visit-btn" ng-click="vm.modalOpen('#villages-modal')">Submit a new Visit</button></div>
-                </div>
-
-                <div id="map-wrap">
-                    <div id="map-wrap--inner">
-                        <div id="map-wrap--map"></div>
-                        <div id="map-wrap--details" ng-show="vm.villageDetails">
-                            <p>Location: {{vm.villageDetails.Name}}</p>
-                            <p>Estimated Population: {{vm.villageDetails.Population | number }}</p>
-                        </div>
+        <div class="welcome-panel--content inner-wrap">
+            <h4 class="welcome-panel-content--greeting">Welcome to MNTR!</h4>
+            <p>To get started, close this window and select an Oblast, Rayon, and Village.</p>
+            <p>You will be able to see any monitoring visits made to that village, or leave a visit of your own.</p>
+            <p>Just want a blank form? No problem - click the 'print a blank form button' below.</p>
+            <button class="btn welcome-panel--print-visit-btn" ng-click="vm.printBlankForm()" class="btn">Print a blank visit form</button>
+        </div>
+    </div>
+    <div class="outer-wrap">
+            <header class="inner-wrap">
+            <div id="header-elements">
+                <div class="header-elements--inner">
+                    <h1 class="header-elements--logo">MNTR</h1>
+                    <div ng-click="welcomePanelOpen = false" ng-mouseenter="active = true" ng-mouseleave="active = false" class="header-elements--hamburger hamburger-wrap">
+                        <div ng-class="{change:active}" class="bar-1"></div>
+                        <div ng-class="{change:active}" class="bar-2"></div>
+                        <div ng-class="{change:active}" class="bar-3"></div>
                     </div>
                 </div>
-
-            </main>
-        </div>
-    </div>
-    <div class="hidden modal" id="villages-modal">
-        <div id="modal-inner">
-            <div class="inner-wrap">
-                <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
-                <visit-form></visit-form>
             </div>
-<!--ERROR MODAL CONTENT-->
-            <div class="hidden modal" id="form-error-modal">
-                <div id="form-error-modal-text-wrap">
-                    <p>{{ vm.formErrorMsg }}</p>
-                    <button id="form-error-btn" ng-click="vm.modalClose($event)">Got it</button>
+            <navigation></navigation>
+        </header>
+
+
+        <div id="main-outer">
+
+            <div class="inner-wrap" id="villages-inner">
+
+                <div id="village-select-wrap">
+                    <select class="village-select" data-ng-model="vm.selectedOblast" data-ng-change="vm.getRayons()" ng-options="i.pcode as i.name for i in vm.oblasts" id="oblast">
+                        <option value="">--Oblast--</option>
+                    </select>
+                    <select class="village-select" data-ng-model="vm.selectedRayon" data-ng-change="vm.getVillages()" ng-options="i.Admin2 as i.Name for i in vm.rayons" id="rayon">
+                        <option value="">--Rayon--</option>
+                    </select>
+                    <select class="village-select" data-ng-model="vm.selectedVillage" data-ng-change="vm.selectVillage()" ng-options="i.Admin4 as i.Name for i in vm.villages">
+                        <option value="">--Village--</option>
+                    </select>
+                </div>
+
+                <main>
+                    <div id="map-wrap">
+                        <div id="map-wrap--inner">
+                            <div id="map-wrap--map"></div>
+                            <div id="map-wrap--details" ng-show="vm.villageDetails">
+                                <p>Location: {{vm.villageDetails.Name}}</p>
+                                <p>Estimated Population: {{vm.villageDetails.Population | number }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="visit-btn-wrap">
+                        <h3>{{vm.visitHeader}}</h3>
+                        <div ng-show="!vm.selectedOblast && !vm.selectedRayon && !vm.selectedVillage">
+                            <ul>
+                                <li ng-click="vm.recentVisitHandler($event)" class="recent-visit" ng-repeat="i in vm.recentVisits | orderBy: '-date'" data-loc="{{i}}"> {{ i.date | date: "MMMM-dd-yyyy"}} - {{ i.location_admin4_en }} - {{ i.location_admin2_en}} Rayon</li>
+                            </ul>
+                        </div>
+                        <div ng-show="vm.selectedOblast && !vm.selectedRayon && !vm.selectedVillage">
+                            <ul>
+                                <li ng-click="vm.recentVisitHandler($event)" class="recent-visit" ng-repeat="i in vm.recentVisits | orderBy: '-date'" ng-show="i.location_admin1_code === vm.selectedOblast" data-loc="{{i}}">{{ i.date | date: "MMMM-dd-yyyy"}} - {{ i.location_admin4_en }} - {{ i.location_admin2_en}} Rayon</li>
+                            </ul>
+                        </div>
+                        <div ng-show="vm.selectedOblast && vm.selectedRayon && !vm.selectedVillage">
+                            <ul>
+                                <li ng-click="vm.recentVisitHandler($event)" class="recent-visit" ng-repeat="i in vm.recentVisits | orderBy: '-date'" ng-show="i.location_admin2_code === vm.selectedRayon" data-loc="{{i}}">{{ i.date | date: "MMMM-dd-yyyy"}} - {{ i.location_admin4_en }} - {{ i.location_admin2_en}} Rayon</li>
+                            </ul>
+                        </div>
+                        <div  id="visits-container">
+                            <visit-details ng-show="vm.visitArray" ng-repeat="i in vm.visitArray | orderBy:'-date'"></visit-details>
+                        </div>
+                        <div ng-show="vm.villageDetails !== ''" id="village-form-btn-wrap "><button class="visit-btn" ng-click="vm.modalOpen('#villages-modal')">Submit a new Visit</button></div>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+        <div class="hidden modal" id="villages-modal">
+            <div id="modal-inner">
+                <div class="inner-wrap">
+                    <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
+                    <visit-form></visit-form>
+                </div>
+                <!--ERROR MODAL CONTENT-->
+                <div class="hidden modal" id="form-error-modal">
+                    <div id="form-error-modal-text-wrap">
+                        <p>{{ vm.formErrorMsg }}</p>
+                        <button id="form-error-btn" ng-click="vm.modalClose($event)">Got it</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-<!--PRINT VISIT MODAL-->
-    <div class="hidden modal" id="form-print-modal">
-        <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
-        <print-visit-form></print-visit-form>
-    </div>
+        <!--PRINT VISIT MODAL-->
+        <div class="hidden modal" id="form-print-modal">
+            <span class="modal-exit" ng-click="vm.modalClose($event)">X</span>
+            <print-visit-form></print-visit-form>
+        </div>
 
-<footer>
-    <p>I am a footer</p>
-</footer>
+        <footer>
+            <div class="inner-wrap">
+                <p class="f-right">Oddson Studios &copy; 2017 </p>
+            </div>
+        </footer>
+    </div>

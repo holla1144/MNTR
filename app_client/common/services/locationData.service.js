@@ -30,12 +30,18 @@
 
         };
 
+        let getRecentVisits = function() {
+            return $http.get('/api/getRecent', {headers: {Authorization: 'Bearer ' + authentication.getToken()}});
+            ;
+        };
+
         return {
             "getRayons": getRayons,
             "getVillages": getVillages,
             "getOne": getOne,
             "addVisit": addVisit,
-            "getVisits": getVisits
+            "getVisits": getVisits,
+            "getRecentVisits": getRecentVisits
 
         };
 

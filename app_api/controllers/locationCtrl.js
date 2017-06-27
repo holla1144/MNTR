@@ -90,7 +90,9 @@ module.exports.addVisit = function(req, res){
         location: req.body.location,
         location_admin4_en: req.body.locationName,
         location_admin2_en: req.body.locationRayon,
+        location_admin2_code: req.body.codeRayon,
         location_admin1_en: req.body.locationOblast,
+        location_admin1_code: req.body.codeOblast,
         collector_name: req.body.collector,
         date: req.body.date,
         date_added: req.body.dateAdded,
@@ -181,5 +183,26 @@ module.exports.getVisits = function(req, res) {
         }
     })
 
+};
 
+module.exports.getRecentVisits = function(req, res) {
+
+    let today = new Date();
+    let twoWeeksAgo = new Date(today.setDate(today.getDate() - 25));
+
+    let query = Visit.find({date: {$gte: twoWeeksAgo, $lte: new Date()}}).sort({date: 1});
+
+    query.exec(function( err, docs ) {
+        if (err) {
+            console.log(err);
+            sendJSONresponse(res, 400, {
+                "message": "There was an error " + err,
+            })
+        } else {
+            console.log(docs);
+            sendJSONresponse(res, 200, {
+                "data": docs
+            })
+        }
+    })
 };

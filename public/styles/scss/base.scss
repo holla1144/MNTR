@@ -23,7 +23,7 @@ $fonts:(
 
 $colors: (
         modal: rgba(26, 26, 26, .9),
-        gray: rgba(153, 161, 166, 1),
+        gray: #E1E1E1,
         unhcr: rgba(0, 114, 188, 1),
         paynesGray: rgba(92, 103, 132, 1),
 );
@@ -62,6 +62,12 @@ html, body {
 
 .visible {
   display: block;
+}
+
+ul {
+  li {
+    list-style-type: none;
+  }
 }
 
 p, a {

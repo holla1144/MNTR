@@ -20,10 +20,22 @@ var visitschema = new Schema({
         required: true,
         type: String
     },
+
+    location_admin2_code: {
+        required: true,
+        type: Number
+    },
+
     location_admin1_en: {
         required: true,
         type: String
     },
+
+    location_admin1_code: {
+        required: true,
+        type: Number
+    },
+
     collector_name: {
         required: true,
         type: String

@@ -40,7 +40,7 @@
                                 <span class="visit-details-print--answer">{{ vm.printVisit.village_status || "Not reported" }}</span></p>
                             <p class="visit-details-print--question">Estimated current population:
                                 <span class="visit-details-print--answer">{{ vm.printVisit.population_current || "Not reported" }}</span></p>
-                            <p class="visit-details--question">Estimated pre-conflict population:
+                            <p class="visit-details-print--question">Estimated pre-conflict population:
                                 <span class="visit-details-print--answer">{{ vm.printVisit.population_pre || "Not reported" }}</span></p>
                         </div>
                 </div>
@@ -139,6 +139,33 @@
                             <span class="visit-details-print--answer">{{ (vm.printVisit.returnees_change == null) ? "Not reported" : vm.printVisit.returnees_change }}</span></p>
                         <p class="visit-details-print--question">How has the number of idps changed in the last 30 days?
                             <span class="visit-details-print--answer">{{ (vm.printVisit.idps == null) ? "Not reported" : vm.printVisit.idps }}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section" id="print-report-assistance">
+                <div class="section-head">
+                    <h3>Assistance</h3>
+                </div>
+                <div class="section-content">
+                    <div class="visit-details--col col-1">
+                        <p class="visit-details-print--question">
+                            <span class="visit-details-print--question">{{ !vm.printVisit.assistance_type ? "No information about types of assistance received" : "Types of assistance received" }}</span></p>
+                        <ul class="visit-details--assistance-types-list">
+                            <li class="visit-details--assistance-types-item visit-details-print--answer" ng-repeat="(key, val) in vm.printVisit.assistance_type">{{ val ? key : "" }}</li>
+                        </ul>
+                        <p class="visit-details-print--question">Organizations which have provided assistance:
+                            <span class="visit-details-print--answer">{{ vm.printVisit.assistance_orgs
+                                ? vm.printVisit.assistance_orgs : "No information reported" }}</span></p>
+                    </div>
+                    <div class="visit-details--col col-2">
+
+                        <p class="visit-details-print--question">Perceived level of need for NFIs:
+                            <span class="visit-details-print--answer">{{ (vm.printVisit.nfi_need !== null) ? vm.printVisit.nfi_need : "No information reported" }}</span></p>
+                        <p class="visit-details-print--question">There are deficits of the following goods and services:
+                            <span class="visit-details-print--answer">{{ !vm.printVisit.deficits ? "No information about deficits of goods or services" : "There are deficits of the following goods and services" }}</span></p>
+                        <ul>
+                            <li ng-repeat="(key, val) in vm.printVisit.deficits">{{ val ? key : "" }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>

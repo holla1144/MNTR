@@ -39,6 +39,9 @@ html, body {
 .visible {
   display: block; }
 
+ul li {
+  list-style-type: none; }
+
 p, a {
   font-family: "droid";
   font-size: 18px;
